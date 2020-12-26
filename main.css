@@ -1,0 +1,453 @@
+body{
+    margin:0px;
+    padding:0px;
+    background-position:center center;
+    background-attachment:scroll;
+    background-image: url(anasayfa.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#bodyana {
+    height: 1000px;
+    width: 100%;
+    font-family: sans-serif;
+    background-image: url(anasayfa.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#indexbody
+{
+    width: 100%;
+    display: flex;
+}
+#haberler
+{
+    font-weight: bolder;
+    color:rgb(255, 255, 255)
+}
+#bodyhaber
+{
+    width: 100%;
+    margin: 3% 25%;
+}
+#bodyduyuru
+{
+    width: 100%;
+    margin:  0% 25%;
+
+}
+
+#bodyhakkimda
+{
+    background-color: rgb(101, 155, 155);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(anasayfa.jpg);
+}
+.sol-ust{
+    
+    border: 1px solid #03270f;
+    padding: 10px 40px; 
+    background: rgb(252, 252, 252);
+    width: 46%;
+    height: auto;
+    border-bottom-left-radius: 25px;
+    color: rgb(0, 0, 0);
+    float: left;
+    }
+#bodyiletisim
+{
+    margin: 5% 25%;
+    padding: 3%;
+    width: 50%;
+    background-color: transparent;
+    margin-left:30%;
+}
+.ozellik{
+    height: 30%;
+    width: 80%;
+
+}
+
+#menubar
+{
+    height: 100%;
+    width: 100%;
+}
+#shrek
+{
+    width:60px;
+}
+#baslikul
+{
+    width:80%;
+    text-align: right;
+    justify-content: right;
+    
+}
+#ana
+{
+    display:flex;
+}
+#image
+{
+    width:20%;
+}
+header {
+	width: 100%;
+    background-color: #000000;
+    height: 60px;
+    z-index: 999;
+}
+#shrekdesign
+{
+    width:10%;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 22px;
+    
+}
+#kucukbaslik {
+	display: none;
+}
+
+header label {
+	display: none;
+	width: 32px;
+	height: 32px;
+	padding: 10px;
+	border-right: 1px solid #ffffff;
+}
+
+header label:hover {
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.baslik ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display:flex;
+    justify-content: center;
+}
+
+.baslik li 
+{
+    border-right: 3px solid #045308;
+    width: 180px;
+    line-height: 30px;
+}
+
+.baslik li:hover 
+{
+	background-color: rgba(0,0,0,0.3);
+}
+
+.baslik li a {
+	display: block;
+	padding: 15px 20px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+
+
+.menuac{
+    width:180px;
+    height:auto;
+}
+.menuac ul{
+    width:180px;
+    margin:0;
+    padding:0;
+    list-style-type:none;   
+}
+.menuac li{
+    position: relative;
+}
+.menuac li ul{
+    position:absolute;
+    list-style-type:none;
+    display:none;   
+    z-index: 999;
+}
+.menuac li a{
+    display: block;
+    text-decoration: none;
+    background-color:#000000;
+    color:rgb(255, 255, 255);
+    border-bottom:0; 
+
+}
+.menuac li a:hover{
+    background-color:#000000;
+    color:rgb(10, 134, 10);
+}
+.menuac li:hover ul{
+    display:block;
+}
+#bodytasarim
+{
+    width: 70%;
+    margin: 2% 15%;
+}
+#bodyaciklama
+{
+    width: 70%;
+    margin: 5% 15%;
+    background-color:transparent;
+    text-align: center;
+    font-size: 200%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
+@media (max-width:800px){
+	header label {
+		display: block;
+    }
+    #baslikul
+    {
+    width:100%;
+    }
+    header ul li a img
+    {
+        display: none;
+    }
+	.baslik {
+		position: absolute;
+		background-color: #000000;
+		width: 100%;
+		margin-top: 0;
+		transition: all 0.3s;
+	}
+	
+	.baslik ul {
+        flex-direction: column;
+        
+	}
+	
+	.baslik li {
+		border-top: 1px solid #ffffff;
+        width: 100%;
+       
+	}
+	
+    #kucukbaslik:checked ~ #ana {
+        display:none;
+        margin:0;
+	}
+}
+
+
+
+
+
+* {box-sizing: border-box}
+.Slider {display: none}
+img {vertical-align: middle;}
+
+.bodyslider {
+  max-width: 20%;
+  position: relative;
+  margin: auto;
+}
+
+.once, .sonra{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+#slidericon
+{
+    width: 100%;
+}
+.once {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.once:hover, .sonra:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.nokta {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .nokta:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+
+input[type="button"]{
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 45%;
+    background-color: #05550f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    top: 0;
+}
+input[name="Yazdır"]{
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 45%;
+    background-color: #05550f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    top: 825px;
+}
+#labeliletisim
+{
+    color: white;
+}
+textarea[type="text"] {
+      font-family: Helvetica;
+      font-size: 25px;
+      font-weight: bold;
+      text-align: left;
+      border: none;
+      overflow: auto;
+      outline: none;
+      position: relative;
+      margin-left: 45%;
+      height: 800px;
+      top: 17px;
+}
+textarea[id="emir"]
+{
+    font-family: Helvetica;
+      font-size: 25px;
+      font-weight: bold;
+      border: none;
+      overflow: auto;
+      outline: none;
+      resize: none;
+      width: 80%;
+}
+.box {
+   position: relative;  
+   display: inline-block;
+   padding: 30px 0;
+}
+
+
+textarea[readonly] {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+
+
+
+
+
+
+
+#footer{
+
+    background-color: rgb(10, 10, 10);  
+    display: flex;
+    
+}
+#icon
+{
+width: 70px;
+height: 70px;
+
+}
+#li
+{
+    list-style-type:none;
+}
+#bilgilendirme
+{
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: left; 
+    width: 25%;
+    margin:auto;
+}
+#sosyalmedya
+{
+    width: 35%;
+    text-align: center;
+    margin-top: 4%;
+}
+
+#iletisim
+{
+    width: 40%;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    text-align: right;   
+}
+
