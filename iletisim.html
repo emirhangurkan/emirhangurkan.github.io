@@ -47,22 +47,27 @@
 <div id="bodyiletisim">
     <label id="labeliletisim">İLETİŞİM FORMU</label>
     <div>
-          <div>
-            <input class="ozellik" type="ad" id="ad"  name="Ad-Soyad" value="" placeholder="İsim" required>
-          </div><br>
-          <div>
-            <input class="ozellik" type="email" id="mail" name="Email" value="" placeholder="Mail" required>
-          </div><br>
-          <div>
-            <input class="ozellik" type="tarih" name="Dogum-Tarihi" value="" max="2020-12-26" placeholder="Doğum Tarihi" required>
-          </div><br>
-          <div>
-            <input class="ozellik" type="telefon" name="Telefon" value="" id="numara:" maxlength="10" aria-invalid="true" pattern="[0-9]{10}" placeholder="Telefon:0(5xx) xxx xx xx" required>
-          </div><br>
-          <div>
-            <textarea id="emir" id="Mesaj" name="Mesaj:" rows="3"  placeholder="Mesajınızı bu alan giriniz:" required></textarea>
-          </div><br>
-          <button class="elemanbuton" type="submit">GÖNDER</button>
+          
+          <form
+            action="https://formspree.io/f/mzbkkabz"
+            method="POST">
+            <div>
+                <input class="ozellik" type="ad" id="ad"  name="Ad-Soyad" value="" placeholder="İsim" required>
+              </div><br>
+              <div>
+                <input class="ozellik" type="email" id="mail" name="Email" value="" placeholder="Mail" required>
+              </div><br>
+              <div>
+                <input class="ozellik" type="tarih" name="Dogum-Tarihi" value="" max="2020-12-26" placeholder="Doğum Tarihi" required>
+              </div><br>
+              <div>
+                <input class="ozellik" type="telefon" name="Telefon" value="" id="numara:" maxlength="10" aria-invalid="true" pattern="[0-9]{10}" placeholder="Telefon:0(5xx) xxx xx xx" required>
+              </div><br>
+              <div>
+                <textarea id="emir" id="Mesaj" name="Mesaj:" rows="3"  placeholder="Mesajınızı bu alan giriniz:" required></textarea>
+              </div><br>
+              <button class="elemanbuton" type="submit">GÖNDER</button>
+          </form>
       </div>
 </div>
 
