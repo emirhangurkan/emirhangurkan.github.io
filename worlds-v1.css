@@ -34,13 +34,20 @@ body[data-world="play"] [data-fallback="play"],body[data-world="story"] [data-fa
 .scene-hint { color:#59696c; }
 .scene-hint span { font-size:17px; margin-left:8px; vertical-align:-2px; }
 .scene-muted .scene-shell { opacity:0; pointer-events:none; }
-.hero { min-height:100svh; padding:155px 56px 150px; position:relative; pointer-events:none; }
+.hero { min-height:100svh; padding:155px 56px 100px; position:relative; pointer-events:none; }
 .hero-copy { position:relative; z-index:4; max-width:58%; pointer-events:auto; }
 .eyebrow { font-size:8px; font-weight:650; line-height:1.7; letter-spacing:.16em; color:var(--muted); }
 .live-dot { display:inline-block; width:5px; height:5px; background:var(--accent); border-radius:50%; margin-right:9px; vertical-align:1px; box-shadow:0 0 13px #7ad7c5a6; }
 h1 { font-size:clamp(95px,12.4vw,182px); font-weight:800; line-height:.83; letter-spacing:-.083em; margin:33px 0 31px; }
 h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
 .hero-description { color:#a1aaab; font-size:14px; line-height:1.75; }
+.hero-actions { display:flex; align-items:center; gap:28px; flex-wrap:wrap; margin-top:27px; }
+.hero-email { display:block; padding:7px 0 11px; max-width:100%; text-decoration:none; border-bottom:1px solid #82999566; }
+.hero-email small { display:block; margin-bottom:8px; color:#8da09e; font-size:7px; letter-spacing:.15em; font-weight:650; }
+.hero-email > span { font-size:13px; font-weight:550; overflow-wrap:anywhere; }
+.hero-email i { color:var(--accent); font-style:normal; margin-left:8px; }
+.hero-email:hover { color:var(--accent); border-color:var(--accent); }
+.hero-actions .enter-link { margin-top:0; }
 .enter-link { display:inline-flex; align-items:center; gap:16px; text-decoration:none; margin-top:23px; font-size:9px; letter-spacing:.1em; font-weight:750; }
 .enter-link small { display:block; color:#66777a; font-size:6px; letter-spacing:.12em; margin-top:8px; }
 .round-arrow { width:44px; height:44px; display:grid; place-items:center; border:1px solid #92a5a559; border-radius:50%; color:var(--accent); font-size:22px; transition:background .2s,color .2s; }
@@ -66,6 +73,10 @@ h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
 .project-link { display:inline-flex; gap:32px; align-items:center; text-decoration:none; padding-bottom:11px; border-bottom:1px solid #9eafaf6e; font-size:10px; font-weight:650; margin-top:24px; }
 .project-link span { font-size:16px; color:var(--accent); }
 .project-link:hover { color:var(--accent); }
+.project-email { display:block; width:fit-content; max-width:100%; min-height:44px; margin-top:17px; padding:6px 0; color:#b0bdbd; font-size:11px; line-height:1.5; text-decoration:none; overflow-wrap:anywhere; }
+.project-email small { display:block; font-size:6px; letter-spacing:.15em; color:#849592; margin-bottom:5px; }
+.project-email span { color:var(--accent); margin-left:9px; }
+.project-email:hover { color:var(--accent); }
 .chapter-backdrop { position:absolute; left:-15px; bottom:-70px; font-size:clamp(240px,32vw,460px); line-height:1; font-weight:750; letter-spacing:-.1em; color:#91a4a508; pointer-events:none; }
 .chapter-connect .chapter-copy { width:55%; }
 .chapter-connect h2 { font-size:clamp(60px,7vw,105px); }
@@ -84,7 +95,13 @@ h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
 .contact-title h2 em { font-style:normal; color:#9bd5c5; }
 .contact-title > span { font-size:clamp(95px,16vw,230px); color:#364a48; transition:transform .3s,color .3s; }
 .contact-title:hover > span { transform:translate(7px,-7px); color:#9bd5c5; }
-.contact-links { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+.contact-emails { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:36px; margin-bottom:52px; }
+.contact-emails a { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:10px; row-gap:12px; padding:22px 0; border-top:1px solid #91a2a342; text-decoration:none; }
+.contact-emails small { grid-column:1 / -1; font-size:7px; color:#849b99; letter-spacing:.12em; }
+.contact-emails a > span { font-size:clamp(11px,1.05vw,15px); line-height:1.5; overflow-wrap:anywhere; }
+.contact-emails i { color:#9bd5c5; font-style:normal; }
+.contact-emails a:hover { color:#9bd5c5; border-color:#9bd5c5; }
+.contact-links { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:35px; }
 .contact-links a { text-decoration:none; border-top:1px solid #91a2a342; padding-top:21px; font-size:18px; font-weight:550; letter-spacing:-.025em; }
 .contact-links small { display:block; font-size:7px; letter-spacing:.1em; margin-bottom:12px; color:#6a7f81; }
 .contact-links span { float:right; color:#728c8b; font-weight:400; }
@@ -103,15 +120,19 @@ h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
   .site-header nav a { font-size:9px; }
   .site-header nav a > span { display:none; }
   .site-header nav a.nav-contact { padding:10px 13px; }
-  .scene-shell { position:absolute; width:100%; height:max(320px,calc(100svh - 470px)); top:420px; right:0; }
+  .scene-shell { position:absolute; width:100%; height:max(320px,calc(100svh - 520px)); top:470px; right:0; }
   .chapter-view .scene-shell { position:fixed; height:50svh; top:50svh; }
   .scene-aura { opacity:.55; }
   .scene-caption { display:none; }
-  .hero { min-height:max(790px,100svh); padding:125px 22px 150px; }
+  .hero { min-height:max(840px,100svh); padding:125px 22px 150px; }
   .hero-copy { max-width:none; width:100%; }
   .hero .eyebrow { font-size:7px; letter-spacing:.1em; }
   .hero h1 { font-size:clamp(80px,19.5vw,132px); line-height:.84; margin:28px 0 24px; }
   .hero-description { font-size:12px; line-height:1.7; }
+  .hero-actions { display:flex; flex-direction:column; align-items:flex-start; gap:13px; margin-top:16px; }
+  .hero-email { padding:3px 0 9px; }
+  .hero-email small { font-size:6px; margin-bottom:6px; }
+  .hero-email > span { font-size:13px; }
   .enter-link { margin-top:13px; gap:12px; font-size:8px; }
   .enter-link small { font-size:5px; }
   .round-arrow { width:35px; height:35px; font-size:19px; }
@@ -144,6 +165,9 @@ h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
   .contact-title { gap:15px; }
   .contact-title h2 { font-size:clamp(85px,22vw,140px); margin:35px 0 50px; }
   .contact-title > span { font-size:80px; }
+  .contact-emails { grid-template-columns:1fr; gap:0; margin-bottom:30px; }
+  .contact-emails a { padding:20px 0; }
+  .contact-emails a > span { font-size:14px; }
   .contact-links { grid-template-columns:1fr; gap:25px; }
   .contact-links a { font-size:21px; }
   .contact-links small { font-size:7px; }
