@@ -146,5 +146,49 @@
     "skipLinkFocusesMain": true,
     "qrSummaryEnterToggles": true
   },
-  "initialJavaScriptBytes": 11550
+  "initialJavaScriptBytes": 11550,
+  "tabletRefinementChecks": [
+    {
+      "clipped": [],
+      "height": 790,
+      "lang": "en",
+      "overflow": false,
+      "width": 653
+    },
+    {
+      "clipped": [],
+      "height": 1024,
+      "lang": "en",
+      "overflow": false,
+      "width": 768
+    },
+    {
+      "clipped": [],
+      "height": 390,
+      "lang": "en",
+      "overflow": false,
+      "width": 844
+    },
+    {
+      "clipped": [],
+      "height": 790,
+      "lang": "tr",
+      "overflow": false,
+      "width": 653
+    },
+    {
+      "clipped": [],
+      "height": 1024,
+      "lang": "tr",
+      "overflow": false,
+      "width": 768
+    },
+    {
+      "clipped": [],
+      "height": 390,
+      "lang": "tr",
+      "overflow": false,
+      "width": 844
+    }
+  ]
 }
