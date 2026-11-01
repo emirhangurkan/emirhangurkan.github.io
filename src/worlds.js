@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { createProjectWorlds } from './project-worlds.js';
 
 const body = document.body;
 const shell = document.querySelector('.scene-shell');
 const canvas = document.querySelector('#world-scene');
-const switches = [...document.querySelectorAll('[data-world]')];
+const switches = [...document.querySelectorAll('.world-switcher button[data-world]')];
 const sections = [...document.querySelectorAll('[data-scene]')];
-const captions = { play: '01 / THE PLAY WORLD', story: '02 / THE WONDER WORLD', connect: '03 / THE CONNECT WORLD' };
+const captions = { play: '01 / BLOCK BLUUP', story: '02 / GECE DOSYASI', connect: '03 / KALRADYA CO-OP' };
+const descriptions = { play: 'A floating Block Bluup puzzle board with colorful, rounded pieces.', story: 'The Gece Dosyası fingerprint question mark, sculpted in red.', connect: 'The Kalradya Co-op bronze shield and crossed swords.' };
 const labels = { play: 'Block Bluup: a world to play in.', story: 'Gece Dosyası: a world to look closer at.', connect: 'Kalradya Co-op: a world to share.' };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let currentSection = sections[0];
@@ -19,6 +20,8 @@ function setWorld(world, announce = false) {
   if (!Object.hasOwn(captions, world)) return;
   currentWorld = world;
   body.dataset.world = world;
+  canvas.setAttribute('aria-label', descriptions[world]);
+  document.querySelector('.scene-fallback').setAttribute('aria-label', descriptions[world]);
   switches.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.world === world)));
   document.querySelector('.scene-world').textContent = captions[world];
   if (announce) document.querySelector('.world-announcement').textContent = labels[world];
@@ -51,7 +54,7 @@ try {
   renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 761 ? 1.25 : 1.5));
   renderer.setClearColor(0x000000, 0);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = .9;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(36, 1, .1, 70);
   camera.position.set(0, .05, 8.2);
@@ -60,112 +63,23 @@ try {
   const pmrem = new THREE.PMREMGenerator(renderer);
   const envTarget = pmrem.fromScene(environment, .04);
   scene.environment = envTarget.texture;
-  scene.environmentIntensity = 1.05;
+  scene.environmentIntensity = .6;
   environment.dispose();
   pmrem.dispose();
 
-  const key = new THREE.DirectionalLight(0xe7fcff, 3.3);
+  const key = new THREE.DirectionalLight(0xf7fcff, 1.6);
   key.position.set(3, 4, 5);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0x74d6d0, 2.5);
+  const rim = new THREE.DirectionalLight(0x74d6d0, 1.6);
   rim.position.set(-4, 1, -2);
   scene.add(rim);
-  const fill = new THREE.PointLight(0xe1b5ff, 45, 14, 2);
+  const fill = new THREE.PointLight(0xc0e6ff, 20, 14, 2);
   fill.position.set(2, -2, 3);
   scene.add(fill);
   const root = new THREE.Group();
   scene.add(root);
 
-  const chrome = new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: .87, roughness: .19, clearcoat: 1, clearcoatRoughness: .14, iridescence: .35, iridescenceIOR: 1.4 });
-  const silver = new THREE.MeshStandardMaterial({ color: 0xd8e2e4, metalness: .92, roughness: .22 });
-  const copper = new THREE.MeshPhysicalMaterial({ color: 0xff6042, metalness: .65, roughness: .23, clearcoat: 1, emissive: 0x4a100a, emissiveIntensity: .22 });
-  const lilac = new THREE.MeshPhysicalMaterial({ color: 0xb8a0ff, metalness: .83, roughness: .18, clearcoat: 1 });
-  const aqua = new THREE.MeshPhysicalMaterial({ color: 0x92e9d2, metalness: .82, roughness: .18, clearcoat: 1 });
-  const lineMaterial = new THREE.MeshBasicMaterial({ color: 0x43666e, transparent: true, opacity: .32 });
-
-  function orbit(parent, color, radius = 2.05) {
-    const orbitMaterial = lineMaterial.clone();
-    orbitMaterial.color.set(color);
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(radius, .006, 5, 140), orbitMaterial);
-    ring.rotation.set(.8, -.4, -.4);
-    parent.add(ring);
-    const marker = new THREE.Mesh(new THREE.SphereGeometry(.045, 12, 10), new THREE.MeshBasicMaterial({ color }));
-    ring.add(marker);
-    marker.position.set(radius, 0, 0);
-    return ring;
-  }
-
-  const play = new THREE.Group();
-  const cubeGeometry = new RoundedBoxGeometry(.3, .3, .3, 3, .055);
-  const count = 112;
-  const cubes = new THREE.InstancedMesh(cubeGeometry, chrome, count);
-  const helper = new THREE.Object3D();
-  const up = new THREE.Vector3(0, 1, 0);
-  const palette = [0x9fe9d9, 0xc2d7e1, 0xb8abc9, 0x7ccdbf, 0xe2e7e1, 0xc5d3d6, 0xf4bd8c];
-  function knot(t) {
-    const r = 1.1 + .43 * Math.cos(3 * t);
-    return new THREE.Vector3(r * Math.cos(2 * t), r * Math.sin(2 * t), .67 * Math.sin(3 * t));
-  }
-  for (let i = 0; i < count; i++) {
-    const t = i / count * Math.PI * 2;
-    const point = knot(t);
-    const tangent = knot(t + .002).sub(point).normalize();
-    helper.position.copy(point);
-    helper.quaternion.setFromUnitVectors(up, tangent);
-    helper.rotateY(.2);
-    helper.updateMatrix();
-    cubes.setMatrixAt(i, helper.matrix);
-    cubes.setColorAt(i, new THREE.Color(palette[i % palette.length]));
-  }
-  cubes.instanceMatrix.needsUpdate = true;
-  play.add(cubes);
-  const playOrbit = orbit(play, 0x75d8c6, 2.02);
-  for (let i = 0; i < 5; i++) {
-    const cube = new THREE.Mesh(new RoundedBoxGeometry(.13, .13, .13, 2, .025), i % 2 ? silver : aqua);
-    const t = i * 1.256;
-    cube.position.set(Math.cos(t) * 1.99, Math.sin(t) * 1.99, Math.sin(t * 2) * .5);
-    cube.rotation.set(t, t, t);
-    play.add(cube);
-  }
-
-  const story = new THREE.Group();
-  const question = new THREE.CurvePath();
-  question.add(new THREE.CubicBezierCurve3(new THREE.Vector3(-1.08,.62,0),new THREE.Vector3(-1.25,2.02,0),new THREE.Vector3(1.42,2.13,0),new THREE.Vector3(1.37,.78,0)));
-  question.add(new THREE.CubicBezierCurve3(new THREE.Vector3(1.37,.78,0),new THREE.Vector3(1.4,.05,0),new THREE.Vector3(.04,.23,0),new THREE.Vector3(.04,-.91,0)));
-  for (let i = -4; i <= 4; i++) {
-    const points = [];
-    for (let step = 0; step <= 100; step++) {
-      const t = step / 100;
-      const point = question.getPoint(t);
-      const tangent = question.getTangent(t);
-      const normal = new THREE.Vector3(-tangent.y, tangent.x, 0).normalize();
-      point.addScaledVector(normal, i * .092);
-      point.z = Math.sin(t * Math.PI) * .3 + i * .038;
-      points.push(point);
-    }
-    const tube = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 130, .038, 8, false), copper);
-    story.add(tube);
-  }
-  const dot = new THREE.Mesh(new THREE.SphereGeometry(.24, 32, 20), copper);
-  dot.position.set(.04, -1.55, 0);
-  story.add(dot);
-  story.position.y = -.12;
-  orbit(story, 0xb75d4b, 2.04);
-
-  const connect = new THREE.Group();
-  const ringGeometry = new THREE.TorusGeometry(1.03, .25, 24, 120);
-  const linkOne = new THREE.Mesh(ringGeometry, lilac);
-  linkOne.position.x = -.72;
-  linkOne.rotation.y = .16;
-  const linkTwo = new THREE.Mesh(ringGeometry, aqua);
-  linkTwo.position.x = .72;
-  linkTwo.rotation.x = Math.PI / 2;
-  connect.add(linkOne, linkTwo);
-  const connectOrbit = orbit(connect, 0xb5a0fa, 2.2);
-  const linkNode = new THREE.Mesh(new THREE.SphereGeometry(.115, 20, 14), new THREE.MeshBasicMaterial({ color: 0xf0e5ff }));
-  linkOne.add(linkNode);
-
-  const sculptures = { play, story, connect };
+  const { sculptures, animate } = createProjectWorlds();
   for (const [name, sculpture] of Object.entries(sculptures)) {
     sculpture.scale.setScalar(name === currentWorld ? 1 : .001);
     sculpture.visible = name === currentWorld;
@@ -204,21 +118,17 @@ try {
     root.rotation.y = easedPointer.x * .24 + dragRotation;
     root.rotation.x = easedPointer.y * .14;
     root.position.y = reduced.matches ? 0 : Math.sin(clock * .55) * .075;
-    root.scale.setScalar(innerWidth < 761 ? .84 : 1);
-    play.rotation.set(.25 + Math.sin(clock * .18) * .1, -.3 + clock * .065, -.18);
-    story.rotation.set(.04, -.15 + Math.sin(clock * .24) * .22, -.08);
-    connect.rotation.set(.5, -.32 + Math.sin(clock * .19) * .2, -.35);
-    playOrbit.rotation.z = clock * .05;
-    connectOrbit.rotation.y = clock * .07;
-    linkNode.position.set(Math.cos(clock * .5) * 1.03, Math.sin(clock * .5) * 1.03, 0);
+    root.scale.setScalar(innerWidth < 761 ? .76 : .84);
     for (const [name, sculpture] of Object.entries(sculptures)) {
       const target = name === currentWorld ? 1 : .001;
       const size = reduced.matches ? target : THREE.MathUtils.damp(sculpture.scale.x, target, 6, delta);
       sculpture.scale.setScalar(size);
       sculpture.visible = size > .004;
     }
-    const color = currentWorld === 'story' ? 0xffb59f : currentWorld === 'connect' ? 0xa59af6 : 0x74d6d0;
-    rim.color.lerp(new THREE.Color(color), .035);
+    animate(clock);
+    const color = currentWorld === 'story' ? 0xe8b35a : currentWorld === 'connect' ? 0xd5b478 : 0x48bfe8;
+    rim.color.lerp(new THREE.Color(color), reduced.matches ? 1 : .035);
+    stars.material.color.lerp(new THREE.Color(color), reduced.matches ? 1 : .035);
     renderer.render(scene, camera);
     body.classList.add('scene-ready');
     if (!reduced.matches && !document.hidden && !body.classList.contains('scene-muted')) frame = requestAnimationFrame(render);

@@ -11,8 +11,8 @@
   <meta property="og:url" content="https://emirhangurkan.github.io/">
   <link rel="canonical" href="https://emirhangurkan.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="worlds-v1.css">
-  <script type="module" src="worlds-v1.js"></script>
+  <link rel="stylesheet" href="worlds-v1.css?v=project-worlds-2">
+  <script type="module" src="worlds-v1.js?v=project-worlds-2"></script>
   <title>Emirhan Gürkan — Ideas, in play.</title>
 </head>
 <body data-world="play">
@@ -23,14 +23,30 @@
     <nav aria-label="Main navigation"><a href="#projeler">The worlds <span>03</span></a><a href="#hakkimda">About</a><a class="nav-contact" href="#iletisim">Let’s talk <span aria-hidden="true">↗</span></a></nav>
   </header>
 
-  <div class="scene-shell" aria-label="Interactive abstract sculpture. Move the pointer or drag to rotate it.">
+  <div class="scene-shell" aria-label="Interactive project worlds. Move the pointer or drag to rotate the scene.">
     <div class="scene-aura" aria-hidden="true"></div>
-    <svg class="scene-fallback" viewBox="0 0 700 700" role="img" aria-label="An abstract interwoven sculpture">
-      <defs><linearGradient id="sculpture" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#baf9e9"/><stop offset=".28" stop-color="#279eac"/><stop offset=".52" stop-color="#e4e5ff"/><stop offset=".7" stop-color="#4b5d96"/><stop offset="1" stop-color="#80e2c2"/></linearGradient></defs>
-      <g fill="none" stroke="url(#sculpture)" stroke-width="43"><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(-37 350 350)"/><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(23 350 350)"/><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(83 350 350)"/></g>
+    <svg class="scene-fallback" viewBox="0 0 700 700" role="img" aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces.">
+      <defs><pattern id="puzzle-grid" width="43" height="43" patternUnits="userSpaceOnUse"><rect width="37" height="37" rx="8" fill="#699fb1"/></pattern></defs>
+      <g data-fallback="play" transform="rotate(-9 350 350)">
+        <rect x="170" y="170" width="360" height="360" rx="25" fill="#075b78" stroke="#fff6de" stroke-width="6"/>
+        <rect x="180" y="180" width="340" height="340" rx="15" fill="url(#puzzle-grid)"/>
+        <g fill="#ff6953"><rect x="184" y="356" width="36" height="36" rx="8"/><rect x="227" y="356" width="36" height="36" rx="8"/><rect x="184" y="399" width="36" height="36" rx="8"/><rect x="227" y="399" width="36" height="36" rx="8"/></g>
+        <g fill="#59d3aa"><rect x="399" y="442" width="36" height="36" rx="8"/><rect x="442" y="442" width="36" height="36" rx="8"/><rect x="399" y="485" width="36" height="36" rx="8"/><rect x="442" y="485" width="36" height="36" rx="8"/></g>
+        <g fill="#36aef1"><rect x="304" y="245" width="39" height="39" rx="9"/><rect x="347" y="245" width="39" height="39" rx="9"/><rect x="304" y="288" width="39" height="39" rx="9"/><rect x="347" y="288" width="39" height="39" rx="9"/></g>
+        <g fill="#ffbe2c"><rect x="434" y="112" width="39" height="39" rx="9"/><rect x="477" y="112" width="39" height="39" rx="9"/><rect x="520" y="112" width="39" height="39" rx="9"/><rect x="477" y="69" width="39" height="39" rx="9"/></g>
+      </g>
+      <g data-fallback="story" transform="translate(62 57) scale(.46)" fill="none" stroke="#f4402e" stroke-width="42" stroke-linecap="round">
+        <path d="M434 173C574 80 776 116 884 233C986 345 967 507 916 592C844 713 706 714 710 890M321 352C356 227 548 150 699 207C835 255 887 375 871 492C854 652 649 665 654 876M438 444C436 358 519 305 605 320C744 343 803 449 753 554C703 659 595 686 599 863M671 501C692 450 648 400 606 389C551 371 514 401 511 451C510 497 483 527 435 526C379 525 349 489 357 433C372 336 467 270 562 258C680 243 773 315 796 414C830 557 690 622 615 706C564 761 544 799 543 832"/>
+        <circle cx="625" cy="1034" r="103" fill="#f4402e" stroke="none"/>
+      </g>
+      <g data-fallback="connect" transform="translate(185 130) scale(4.6)">
+        <path d="M4 5L36 0L68 5L66 48Q61 69 36 83Q11 69 6 48Z" fill="#322721" stroke="#d5b478" stroke-width="2"/>
+        <path d="M15 17L20 19L51 54L48 57L17 22ZM57 17L52 19L21 54L24 57L55 22Z" fill="#d8cbb1"/>
+        <path d="M41 54L46 49L55 59L51 63ZM17 59L26 49L31 54L21 63ZM49 63L54 59L60 66L55 70ZM12 66L18 59L23 63L17 70ZM36 12L39 17L36 22L33 17Z" fill="#d5b478"/>
+      </g>
     </svg>
-    <canvas id="world-scene" aria-label="A sculpture that transforms between playful blocks, a question and connected rings"></canvas>
-    <div class="scene-caption"><span class="scene-world">01 / THE PLAY WORLD</span><span class="scene-hint">MOVE TO EXPLORE <span aria-hidden="true">⤢</span></span></div>
+    <canvas id="world-scene" aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces."></canvas>
+    <div class="scene-caption"><span class="scene-world">01 / BLOCK BLUUP</span><span class="scene-hint">MOVE TO EXPLORE <span aria-hidden="true">⤢</span></span></div>
   </div>
 
   <main id="content">
@@ -42,7 +58,7 @@
           <p class="hero-description">Games to get lost in.<br>Tools that bring people together.<br>Stories that stay with you.</p>
           <a class="enter-link" href="#projeler"><span class="round-arrow" aria-hidden="true">↙</span><span>EXPLORE THE WORLDS<small>THREE WAYS TO FOLLOW MY CURIOSITY</small></span></a>
         </div>
-        <div class="hero-bottom"><span class="hero-bottom-note">ONE CURIOUS MIND.<br>THREE DIFFERENT WORLDS.</span><div class="world-switcher" role="group" aria-label="Transform the sculpture"><button type="button" data-world="play" aria-pressed="true"><small>01</small> PLAY <span aria-hidden="true">↗</span></button><button type="button" data-world="story" aria-pressed="false"><small>02</small> WONDER <span aria-hidden="true">↗</span></button><button type="button" data-world="connect" aria-pressed="false"><small>03</small> CONNECT <span aria-hidden="true">↗</span></button></div></div>
+        <div class="hero-bottom"><span class="hero-bottom-note">ONE CURIOUS MIND.<br>THREE DIFFERENT WORLDS.</span><div class="world-switcher" role="group" aria-label="Explore the project worlds"><button type="button" data-world="play" aria-pressed="true"><small>01</small> PLAY <span aria-hidden="true">↗</span><b class="switch-project">BLOCK BLUUP</b></button><button type="button" data-world="story" aria-pressed="false"><small>02</small> WONDER <span aria-hidden="true">↗</span><b class="switch-project">GECE DOSYASI</b></button><button type="button" data-world="connect" aria-pressed="false"><small>03</small> CONNECT <span aria-hidden="true">↗</span><b class="switch-project">KALRADYA CO-OP</b></button></div></div>
       </section>
 
       <div class="work-divider wrap" id="projeler"><span>SELECTED WORLDS</span><span>SCROLL TO ENTER ↓</span><span>01 — 03</span></div>
