@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-01",
+  "baselineCommit": "99876c071f431cc8172cf6135923c6fd36957c79",
+  "environment": "Windows in-app Chromium browser; local HTTP preview; unthrottled; viewport emulation, not physical phones",
+  "geometryBefore": {
+    "intro": 9244,
+    "play": 86820,
+    "story": 27512,
+    "connect": 8452
+  },
+  "geometryAfter": {
+    "intro": 7228,
+    "play": 35460,
+    "story": 12280,
+    "connect": 7044
+  },
+  "viewportChecks": {
+    "turkish": [
+      {
+        "clipped": [],
+        "height": 568,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 320
+      },
+      {
+        "clipped": [],
+        "height": 667,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 375
+      },
+      {
+        "clipped": [],
+        "height": 932,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 430
+      },
+      {
+        "clipped": [],
+        "height": 1024,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 768
+      },
+      {
+        "clipped": [],
+        "height": 390,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 844
+      },
+      {
+        "clipped": [],
+        "height": 768,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 1024
+      },
+      {
+        "clipped": [],
+        "height": 900,
+        "language": "tr",
+        "overflow": false,
+        "smallControls": [],
+        "width": 1440
+      }
+    ],
+    "english": [
+      {
+        "clipped": [],
+        "height": 568,
+        "language": "en",
+        "overflow": false,
+        "width": 320
+      },
+      {
+        "clipped": [],
+        "height": 667,
+        "language": "en",
+        "overflow": false,
+        "width": 375
+      },
+      {
+        "clipped": [],
+        "height": 932,
+        "language": "en",
+        "overflow": false,
+        "width": 430
+      },
+      {
+        "clipped": [],
+        "height": 1024,
+        "language": "en",
+        "overflow": false,
+        "width": 768
+      },
+      {
+        "clipped": [],
+        "height": 390,
+        "language": "en",
+        "overflow": false,
+        "width": 844
+      },
+      {
+        "clipped": [],
+        "height": 768,
+        "language": "en",
+        "overflow": false,
+        "width": 1024
+      },
+      {
+        "clipped": [],
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "width": 1440
+      }
+    ],
+    "idle": {
+      "rafTotal": 6,
+      "rafLast2s": 0,
+      "drawLast2s": 0,
+      "cls": 5.576380535028928e-05,
+      "lcpMs": 232,
+      "longTasks": 2,
+      "bufferPixels": 555840
+    }
+  },
+  "qr": "Both Google Play and App Store QR codes decoded from a 320px-wide browser screenshot",
+  "renderPolicy": "Automatic 3D; lazy model construction; no idle loop; identical scene updates do not schedule a render; off-screen mobile scenes suspended; 1.2M drawing-buffer pixel cap",
+  "limitations": [
+    "No physical Android or iPhone measurement",
+    "Safari/WebKit and OS-level reduced-motion setting not exercised",
+    "Local LCP is not a production Core Web Vitals or Lighthouse score",
+    "Design quality remains subject to human review"
+  ],
+  "keyboardChecks": {
+    "skipLinkFocusesMain": true,
+    "qrSummaryEnterToggles": true
+  },
+  "initialJavaScriptBytes": 11550
+}

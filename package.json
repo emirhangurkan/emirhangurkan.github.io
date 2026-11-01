@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-worlds.mjs"
+    "build": "node scripts/build-worlds.mjs",
+    "check": "node scripts/check-worlds.mjs"
   },
   "devDependencies": {
     "esbuild": "0.28.2",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Emirhan Gürkan — software engineer and independent creator. Explore Block Bluup, Gece Dosyası and Kalradya Co-op, and get in touch.">
   <meta name="theme-color" content="#090c10">
   <meta property="og:title" content="Emirhan Gürkan — Software. Play. Stories.">
@@ -11,8 +11,8 @@
   <meta property="og:url" content="https://emirhangurkan.github.io/">
   <link rel="canonical" href="https://emirhangurkan.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="worlds-v1.css?v=identity-1">
-  <script type="module" src="worlds-v1.js?v=identity-1"></script>
+  <link rel="stylesheet" href="worlds-v1.css?v=studio-1">
+  <script type="module" src="worlds-v1.js?v=studio-1"></script>
   <title>Emirhan Gürkan — Software. Play. Stories.</title>
 </head>
 <body data-world="intro">
@@ -26,10 +26,11 @@
     </div>
   </header>
 
+  <div class="scene-home"></div>
   <div class="scene-shell" aria-label="Interactive 3D worlds. Move the pointer or drag to explore." data-i18n-aria="interactiveScene">
     <div class="scene-aura" aria-hidden="true"></div>
     <div class="scene-artwork" role="img" aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds.">
-      <div class="world-art" data-art="intro" aria-hidden="true"><svg viewBox="0 0 700 700" focusable="false">      <g  transform="rotate(-9 350 350)">
+      <div class="world-art" data-art="intro" aria-hidden="true"><svg id="vector-intro" viewBox="0 0 700 700" focusable="false">      <g  transform="rotate(-9 350 350)">
         <ellipse cx="350" cy="350" rx="252" ry="202" fill="none" stroke="#b5c7bf" stroke-opacity=".2"/>
         <path d="M159 245H278V280H197V329H260V365H197V418H278V453H159ZM530 291C506 241 444 227 400 255C346 290 345 392 395 432C439 469 512 457 534 408V345H441V380H498V398C478 431 438 430 414 407C382 377 384 310 415 285C442 264 476 276 493 303Z" fill="#e5ebe1"/>
         <path d="M300 466L352 230" fill="none" stroke="#59d3aa" stroke-width="22" stroke-linecap="round"/>
@@ -39,7 +40,7 @@
       </g>
 </svg></div>
       <div class="world-art" data-art="play" aria-hidden="true">
-        <svg viewBox="0 0 700 700" focusable="false">
+        <svg id="vector-play" viewBox="0 0 700 700" focusable="false">
           <defs><linearGradient id="coral" x2=".3" y2="1"><stop stop-color="#ff8b6e"/><stop offset="1" stop-color="#ed5145"/></linearGradient><linearGradient id="mint" x2=".3" y2="1"><stop stop-color="#8ae5bd"/><stop offset="1" stop-color="#35af97"/></linearGradient><linearGradient id="blue" x2=".3" y2="1"><stop stop-color="#75d9ff"/><stop offset="1" stop-color="#238ddc"/></linearGradient><linearGradient id="gold" x2=".3" y2="1"><stop stop-color="#ffe28c"/><stop offset="1" stop-color="#f2a824"/></linearGradient><linearGradient id="board-edge" x2="0" y2="1"><stop stop-color="#fff6de"/><stop offset="1" stop-color="#799b9b"/></linearGradient></defs>
           <circle cx="350" cy="350" r="282" fill="none" stroke="#5bb8bc" stroke-opacity=".15"/>
           <circle cx="350" cy="350" r="256" fill="none" stroke="#5bb8bc" stroke-opacity=".18" stroke-dasharray="2 18"/>
@@ -54,7 +55,7 @@
         </svg>
       </div>
       <div class="world-art" data-art="story" aria-hidden="true">
-        <svg viewBox="0 0 700 700" focusable="false">
+        <svg id="vector-story" viewBox="0 0 700 700" focusable="false">
           <defs><linearGradient id="fingerprint-red" x2=".6" y2="1"><stop stop-color="#ff8b62"/><stop offset=".5" stop-color="#f4402e"/><stop offset="1" stop-color="#b62c26"/></linearGradient></defs>
           <g fill="none" stroke="#b28e69" stroke-opacity=".25"><circle cx="350" cy="350" r="258"/><circle cx="350" cy="350" r="282" stroke-dasharray="1 20"/><path d="M140 189v-49h49M511 140h49v49M140 511v49h49M511 560h49v-49"/></g>
           <path d="M105 430 160 307 112 224M553 446 607 361 583 208" fill="none" stroke="#a1352c"/>
@@ -64,7 +65,7 @@
         </svg>
       </div>
       <div class="world-art" data-art="connect" aria-hidden="true">
-        <svg viewBox="0 0 700 700" focusable="false">
+        <svg id="vector-connect" viewBox="0 0 700 700" focusable="false">
           <defs><linearGradient id="bronze" x2="1" y2="1"><stop stop-color="#fff0bd"/><stop offset=".5" stop-color="#c09b5e"/><stop offset="1" stop-color="#705d39"/></linearGradient><linearGradient id="leather" x2="1" y2="1"><stop stop-color="#483b2d"/><stop offset="1" stop-color="#1d201c"/></linearGradient><linearGradient id="steel" x2="1" y2="1"><stop stop-color="#fff6de"/><stop offset="1" stop-color="#8e9d97"/></linearGradient></defs>
           <g fill="none" stroke="#d5b478"><circle cx="350" cy="350" r="264" stroke-opacity=".2"/><circle cx="350" cy="350" r="250" stroke-opacity=".45" stroke-dasharray="1 20"/><circle cx="350" cy="350" r="236" stroke-opacity=".2"/><path d="M350 67v40M350 593v40M67 350h40M593 350h40" stroke-opacity=".6"/></g>
           <g transform="translate(187 142) rotate(-7 166 191) scale(4.6)">
@@ -80,7 +81,7 @@
     </div>
     <canvas id="world-scene" hidden aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds."></canvas>
     <div class="scene-topline"><span data-i18n="reelLabel">EMIRHAN GÜRKAN / SOFTWARE · PLAY · STORIES</span><span class="reel-counter">EG / 00</span></div>
-    <div class="scene-caption"><span class="scene-world">00 / EMIRHAN GÜRKAN</span><button class="scene-toggle" type="button" aria-pressed="false" hidden>Explore in 3D ↗</button></div>
+    <div class="scene-caption"><span class="scene-world">00 / EMIRHAN GÜRKAN</span><button class="scene-toggle" type="button" hidden>Explore in 3D ↗</button></div>
     <p class="scene-status" role="status"></p>
     <nav class="journey-rail" aria-label="Journey through the portfolio" data-i18n-aria="journey">
       <a href="#top" data-world="intro" aria-current="location"><span data-i18n="railIntro">INTRO</span><i aria-hidden="true"></i></a>
@@ -90,19 +91,20 @@
     </nav>
   </div>
 
-  <main id="content">
+  <main id="content" tabindex="-1">
     <div class="world-journey">
       <section class="hero" aria-labelledby="hero-title" data-scene="intro">
         <div class="hero-stage">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="heroRole"><span class="live-dot" aria-hidden="true"></span> SOFTWARE ENGINEER / INDEPENDENT CREATOR</p>
           <h1 id="hero-title">EMIRHAN<br><em>GÜRKAN.</em></h1>
-          <p class="hero-description" data-i18n="heroDescription">From industrial software to playful worlds.<br>I turn ideas into things you can use,<br>play with and get lost in.</p>
+          <p class="hero-description" data-i18n="heroDescription">From industrial software to playful worlds. I turn ideas into things you can use, play with and get lost in.</p>
           <div class="hero-actions">
             <a class="hero-email" href="mailto:emrgrkan_4114@outlook.com"><small data-i18n="getInTouch">GET IN TOUCH</small><span>emrgrkan_4114@outlook.com <i aria-hidden="true">↗</i></span></a>
             <a class="enter-link" href="#projeler"><span class="round-arrow" aria-hidden="true">↙</span><span data-i18n="exploreWorlds">EXPLORE THE WORLDS<small>THREE WAYS TO FOLLOW MY CURIOSITY</small></span></a>
           </div>
         </div>
+        <div class="scene-slot" data-slot="intro"><svg class="slot-art" viewBox="0 0 700 700" aria-hidden="true"><use href="#vector-intro"/></svg></div>
         <div class="hero-bottom"><span class="hero-bottom-note" data-i18n="heroNote"><span class="scroll-cue" aria-hidden="true">↓</span> SOFTWARE. PLAY. STORIES.<br>SCROLL TO EXPLORE MY WORK.</span><nav class="world-index" aria-label="Selected projects" data-i18n-aria="selectedProjects"><a href="#block-bluup" data-i18n="indexPlay"><small>01</small> PLAY <span aria-hidden="true">↓</span><b>BLOCK BLUUP</b></a><a href="#gece-dosyasi" data-i18n="indexStory"><small>02</small> WONDER <span aria-hidden="true">↓</span><b>GECE DOSYASI</b></a><a href="#kalradya" data-i18n="indexConnect"><small>03</small> CONNECT <span aria-hidden="true">↓</span><b>KALRADYA CO-OP</b></a></nav></div>
         </div>
       </section>
@@ -130,17 +132,17 @@
             <p data-i18n="qrHint">Open your phone’s camera and point it at a code.</p>
           </details>
           <nav class="project-socials" aria-label="Block Bluup social media" data-i18n-aria="playSocials"><span data-i18n="followPlay">FOLLOW THE PLAY</span><div><a href="https://www.instagram.com/blockbluup/">Instagram <i aria-hidden="true">↗</i></a><a href="https://www.tiktok.com/@playblockbluup">TikTok <i aria-hidden="true">↗</i></a><a href="https://www.youtube.com/@blockbluup">YouTube <i aria-hidden="true">↗</i></a></div></nav>
-          <a class="project-email" href="mailto:zenithmedyakocaeli@gmail.com"><small data-i18n="projectContact">PROJECT CONTACT</small>zenithmedyakocaeli@gmail.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">01</span>
+          <a class="project-email" href="mailto:zenithmedyakocaeli@gmail.com"><small data-i18n="projectContact">PROJECT CONTACT</small>zenithmedyakocaeli@gmail.com <span aria-hidden="true">↗</span></a></div><div class="scene-slot" data-slot="play"><svg class="slot-art" viewBox="0 0 700 700" aria-hidden="true"><use href="#vector-play"/></svg></div><span class="chapter-backdrop" aria-hidden="true">01</span>
       </section>
 
       <section class="chapter chapter-story" id="gece-dosyasi" data-scene="story" aria-labelledby="story-title">
         <div class="chapter-copy"><p class="eyebrow" data-i18n="storyEyebrow"><span class="chapter-index">02</span> VIDEO STORIES / IN TURKISH</p><h2 id="story-title" data-i18n="storyTitle">LOOK<br>A LITTLE<br><em>CLOSER.</em></h2><p class="project-name">GECE DOSYASI</p><p class="chapter-description" data-i18n="storyDescription">History, legends and the questions they leave behind. Narrated stories for the part of you that always wants to know what happened next.</p><a class="project-link" href="https://www.youtube.com/@gecedosyasiarsivi" data-i18n="storyLink">Step into Gece Dosyası <span aria-hidden="true">↗</span></a>
           <nav class="project-socials" aria-label="Gece Dosyası social media" data-i18n-aria="storySocials"><span data-i18n="followStories">FOLLOW THE STORIES</span><div><a href="https://www.youtube.com/@gecedosyasiarsivi">YouTube <i aria-hidden="true">↗</i></a><a href="https://www.instagram.com/gecedosyasiarsivi/">Instagram <i aria-hidden="true">↗</i></a><a href="https://www.tiktok.com/@gecedosyasiarsivi">TikTok <i aria-hidden="true">↗</i></a><a href="https://www.facebook.com/people/Gece-Dosyas%C4%B1/61595583212387/">Facebook <i aria-hidden="true">↗</i></a></div></nav>
-          <a class="project-email" href="mailto:gecedosyasi@outlook.com"><small data-i18n="projectContact">PROJECT CONTACT</small>gecedosyasi@outlook.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">02</span>
+          <a class="project-email" href="mailto:gecedosyasi@outlook.com"><small data-i18n="projectContact">PROJECT CONTACT</small>gecedosyasi@outlook.com <span aria-hidden="true">↗</span></a></div><div class="scene-slot" data-slot="story"><svg class="slot-art" viewBox="0 0 700 700" aria-hidden="true"><use href="#vector-story"/></svg></div><span class="chapter-backdrop" aria-hidden="true">02</span>
       </section>
 
       <section class="chapter chapter-connect" id="kalradya" data-scene="connect" aria-labelledby="connect-title">
-        <div class="chapter-copy"><p class="eyebrow" data-i18n="connectEyebrow"><span class="chapter-index">03</span> OPEN-SOURCE TOOL / C# · WINDOWS</p><h2 id="connect-title" data-i18n="connectTitle">BETTER.<br><em>TOGETHER.</em></h2><p class="project-name">KALRADYA CO-OP</p><p class="chapter-description" data-i18n="connectDescription">Less setting up. More playing together. An open-source companion that helps Bannerlord co-op players prepare servers, connect and manage their saves.</p><a class="project-link" href="https://github.com/emirhangurkan/Kalradya-Coop" data-i18n="connectLink">Explore the project <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">03</span>
+        <div class="chapter-copy"><p class="eyebrow" data-i18n="connectEyebrow"><span class="chapter-index">03</span> OPEN-SOURCE TOOL / C# · WINDOWS</p><h2 id="connect-title" data-i18n="connectTitle">BETTER.<br><em>TOGETHER.</em></h2><p class="project-name">KALRADYA CO-OP</p><p class="chapter-description" data-i18n="connectDescription">Less setting up. More playing together. An open-source companion that helps Bannerlord co-op players prepare servers, connect and manage their saves.</p><a class="project-link" href="https://github.com/emirhangurkan/Kalradya-Coop" data-i18n="connectLink">Explore the project <span aria-hidden="true">↗</span></a></div><div class="scene-slot" data-slot="connect"><svg class="slot-art" viewBox="0 0 700 700" aria-hidden="true"><use href="#vector-connect"/></svg></div><span class="chapter-backdrop" aria-hidden="true">03</span>
       </section>
     </div>
 

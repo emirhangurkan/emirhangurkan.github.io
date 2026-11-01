@@ -38,20 +38,24 @@ export function createScene({ canvas, shell, onFailure }) {
   let active = false, contextLost = false, frame = 0, dragging = false;
   let pointerX = 0, dragRotation = 0, tiltX = 0, tiltY = 0;
   let lastWidth = 0, lastHeight = 0;
+  let fittedWorld = '', fittedWidth = 0, fittedHeight = 0;
+  const compact = matchMedia('(max-width: 900px), (max-height: 500px)');
+  const bounds = new THREE.Box3(), size = new THREE.Vector3(), center = new THREE.Vector3();
 
   function render() {
     frame = 0;
     if (!active || contextLost || state.muted || document.hidden) return;
-    const width = shell.clientWidth, height = shell.clientHeight;
+    const width = canvas.clientWidth, height = canvas.clientHeight;
     if (width < 1 || height < 1) return;
     if (width !== lastWidth || height !== lastHeight) {
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1.25, Math.sqrt(1200000 / (width * height))));
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       lastWidth = width; lastHeight = height;
     }
     root.rotation.set(reduced.matches ? 0 : tiltY, dragRotation + (reduced.matches ? 0 : tiltX), 0);
-    root.scale.setScalar(state.world === 'intro' ? .84 : .7);
+    root.scale.setScalar(.7 + .14 * Math.max(0, 1 - state.position));
     for (const [index, name] of names.entries()) {
       const distance = index - state.position;
       const visible = Math.abs(distance) < .999;
@@ -68,6 +72,19 @@ export function createScene({ canvas, shell, onFailure }) {
     }
     // A stable pose follows the scroll; no continuously running clock.
     animate(reduced.matches ? 0 : state.position * 2);
+    if (compact.matches) {
+      if (fittedWorld !== state.world || fittedWidth !== width || fittedHeight !== height) {
+        root.updateMatrixWorld(true);
+        bounds.setFromObject(getWorld(state.world));
+        bounds.getSize(size); bounds.getCenter(center);
+        const distance = Math.max(size.y, size.x / camera.aspect) / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * .82) + size.z / 2;
+        camera.position.set(center.x, center.y, Math.max(3.8, distance));
+        fittedWorld = state.world; fittedWidth = width; fittedHeight = height;
+      }
+    } else {
+      camera.position.set(0, .05, 8.2);
+      fittedWorld = '';
+    }
     rim.color.setHex(colors[state.world]);
     renderer.render(scene, camera);
   }
@@ -76,7 +93,7 @@ export function createScene({ canvas, shell, onFailure }) {
   }
   new ResizeObserver(requestRender).observe(shell);
   canvas.addEventListener('pointermove', event => {
-    if (!active || event.pointerType === 'touch') return;
+    if (!active || event.pointerType === 'touch' || (reduced.matches && !dragging)) return;
     const rect = canvas.getBoundingClientRect();
     tiltX = ((event.clientX - rect.left) / rect.width - .5) * .24;
     tiltY = ((event.clientY - rect.top) / rect.height - .5) * .14;
@@ -104,7 +121,8 @@ export function createScene({ canvas, shell, onFailure }) {
   return {
     update(next) {
       if (contextLost) throw new Error('WebGL context is unavailable');
-      state = next; active = true; requestRender();
+      const changed = !active || next.position !== state.position || next.world !== state.world || next.muted !== state.muted;
+      state = next; active = true; if (changed) requestRender();
     },
     pause() { active = false; cancelAnimationFrame(frame); frame = 0; }
   };

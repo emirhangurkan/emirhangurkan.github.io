@@ -13,7 +13,7 @@ function mesh(parent, geometry, material, x = 0, y = 0, z = 0) {
 }
 
 function tube(parent, points, material, radius = .012) {
-  return mesh(parent, new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 96, radius, 8, false), material);
+  return mesh(parent, new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 48, radius, 6, false), material);
 }
 
 function createIntro() {
@@ -36,7 +36,7 @@ function createIntro() {
   g.bezierCurveTo(1.06, .91, 1.51, .8, 1.66, .47);
   g.closePath();
   mesh(group, new THREE.ExtrudeGeometry(g, extrusion), silver, 0, 0, .02);
-  const slash = mesh(group, new RoundedBoxGeometry(.13, 2.9, .22, 5, .06), mint, -.33, 0, .22);
+  const slash = mesh(group, new RoundedBoxGeometry(.13, 2.9, .22, 3, .06), mint, -.33, 0, .22);
   slash.rotation.z = -.19;
 
   const orbit = new THREE.Group();
@@ -44,7 +44,7 @@ function createIntro() {
   orbit.position.z = -.68;
   group.add(orbit);
   const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x9aafa5, transparent: true, opacity: .22 });
-  mesh(orbit, new THREE.TorusGeometry(2.62, .006, 6, 192), orbitMaterial);
+  mesh(orbit, new THREE.TorusGeometry(2.62, .006, 6, 96), orbitMaterial);
   const objects = [
     mesh(orbit, new RoundedBoxGeometry(.25, .25, .25, 3, .06), mint),
     mesh(orbit, new THREE.SphereGeometry(.12, 24, 16), physical(0xf4402e, { metalness: .5 })),
@@ -68,11 +68,11 @@ function createPlay() {
   board.position.set(.05, -.07, -.28);
   const cream = physical(0xfff6de, { roughness: .38 });
   const teal = physical(0x075b78, { roughness: .27 });
-  mesh(board, new RoundedBoxGeometry(3.48, 3.48, .24, 4, .18), cream);
-  mesh(board, new RoundedBoxGeometry(3.36, 3.36, .25, 4, .14), teal, 0, 0, .045);
+  mesh(board, new RoundedBoxGeometry(3.48, 3.48, .24, 2, .18), cream);
+  mesh(board, new RoundedBoxGeometry(3.36, 3.36, .25, 2, .14), teal, 0, 0, .045);
 
   const helper = new THREE.Object3D();
-  const slots = new THREE.InstancedMesh(new RoundedBoxGeometry(.352, .352, .065, 3, .053), physical(0x699fb1, { roughness: .5, clearcoat: .2 }), 64);
+  const slots = new THREE.InstancedMesh(new RoundedBoxGeometry(.352, .352, .065, 2, .053), physical(0x699fb1, { roughness: .5, clearcoat: .2 }), 64);
   const cell = (x, y) => [(x - 3.5) * .39, (3.5 - y) * .39];
   for (let y = 0; y < 8; y++) {
     for (let x = 0; x < 8; x++) {
@@ -94,7 +94,7 @@ function createPlay() {
     '22231111'
   ];
   const cells = puzzle.join('').split('').filter(value => value !== '.');
-  const tileGeometry = new RoundedBoxGeometry(.352, .352, .235, 4, .075);
+  const tileGeometry = new RoundedBoxGeometry(.352, .352, .235, 2, .075);
   const tileMaterial = physical(0xffffff, { roughness: .23, clearcoat: 1 });
   const tiles = new THREE.InstancedMesh(tileGeometry, tileMaterial, cells.length);
   let index = 0;
@@ -167,14 +167,14 @@ function createStory() {
       path.add(new THREE.CubicBezierCurve3(start, toPoint(command[0], command[1], index * .025), toPoint(command[2], command[3], index * .025), end));
       start = end;
     }
-    const ridge = mesh(group, new THREE.TubeGeometry(path, 170, .083, 10, false), red);
+    const ridge = mesh(group, new THREE.TubeGeometry(path, 96, .083, 8, false), red);
     ridge.scale.z = .8;
     for (const endpoint of [path.getPoint(0), path.getPoint(1)]) {
-      const cap = mesh(group, new THREE.SphereGeometry(.083, 14, 10), red, endpoint.x, endpoint.y, endpoint.z * .8);
+      const cap = mesh(group, new THREE.SphereGeometry(.083, 10, 8), red, endpoint.x, endpoint.y, endpoint.z * .8);
       cap.scale.z = .8;
     }
   });
-  const dot = mesh(group, new THREE.SphereGeometry(.425, 40, 24), red, 0, -1.68, .04);
+  const dot = mesh(group, new THREE.SphereGeometry(.425, 24, 16), red, 0, -1.68, .04);
   dot.scale.z = .39;
 
   const evidence = new THREE.Group();
@@ -239,8 +239,8 @@ function createConnect() {
   compass.position.z = -.65;
   group.add(compass);
   const engraving = new THREE.MeshBasicMaterial({ color: 0xd5b478, transparent: true, opacity: .25 });
-  mesh(compass, new THREE.TorusGeometry(2.04, .007, 6, 160), engraving);
-  mesh(compass, new THREE.TorusGeometry(2.14, .004, 5, 160), engraving);
+  mesh(compass, new THREE.TorusGeometry(2.04, .007, 6, 96), engraving);
+  mesh(compass, new THREE.TorusGeometry(2.14, .004, 5, 96), engraving);
   const ticks = new THREE.InstancedMesh(new THREE.BoxGeometry(.009, .06, .009), engraving, 48);
   const helper = new THREE.Object3D();
   for (let i = 0; i < 48; i++) {

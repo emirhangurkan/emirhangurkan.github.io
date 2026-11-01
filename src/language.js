@@ -9,7 +9,7 @@ const turkish = {
   reelLabel: 'KURDUĞUM DÜNYALARDAN BİRKAÇI',
   railIntro: 'GİRİŞ', railPlay: '01 / OYNA', railStory: '02 / KEŞFET', railConnect: '03 / BİRLİKTE',
   heroRole: '<span class="live-dot" aria-hidden="true"></span> YAZILIM MÜHENDİSİ / BAĞIMSIZ ÜRETİCİ',
-  heroDescription: 'Endüstriyel yazılımlardan oyun dolu dünyalara.<br>Fikirleri kullanabileceğin, oynayabileceğin<br>ve içinde kaybolabileceğin şeylere dönüştürüyorum.',
+  heroDescription: 'Endüstriyel yazılımlardan oyun dolu dünyalara. Fikirleri kullanabileceğin, oynayabileceğin ve içinde kaybolabileceğin şeylere dönüştürüyorum.',
   getInTouch: 'İLETİŞİME GEÇ',
   exploreWorlds: 'DÜNYALARI KEŞFET<small>MERAKIMIN PEŞİNDEN ÜÇ FARKLI YOL</small>',
   heroNote: '<span class="scroll-cue" aria-hidden="true">↓</span> YAZILIM. OYUN. HİKÂYELER.<br>ÇALIŞMALARIMI KEŞFETMEK İÇİN KAYDIR.',
