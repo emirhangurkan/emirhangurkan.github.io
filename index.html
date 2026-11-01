@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Step into the worlds of Emirhan Gürkan. Games to play, tools to connect and stories to uncover. Block Bluup, Kalradya Co-op and Gece Dosyası.">
+  <meta name="description" content="Emirhan Gürkan — software engineer and independent creator. Explore Block Bluup, Gece Dosyası and Kalradya Co-op, and get in touch.">
   <meta name="theme-color" content="#090c10">
-  <meta property="og:title" content="Emirhan Gürkan — Ideas, in play.">
+  <meta property="og:title" content="Emirhan Gürkan — Software. Play. Stories.">
   <meta property="og:description" content="Games. Tools. Stories. Step into three worlds by one curious maker.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://emirhangurkan.github.io/">
   <link rel="canonical" href="https://emirhangurkan.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="worlds-v1.css?v=contact-3">
-  <script type="module" src="worlds-v1.js?v=project-worlds-2"></script>
-  <title>Emirhan Gürkan — Ideas, in play.</title>
+  <link rel="stylesheet" href="worlds-v1.css?v=journey-1">
+  <script type="module" src="worlds-v1.js?v=journey-1"></script>
+  <title>Emirhan Gürkan — Software. Play. Stories.</title>
 </head>
-<body data-world="play">
+<body data-world="intro">
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="top">
@@ -25,8 +25,16 @@
 
   <div class="scene-shell" aria-label="Interactive project worlds. Move the pointer or drag to rotate the scene.">
     <div class="scene-aura" aria-hidden="true"></div>
-    <svg class="scene-fallback" viewBox="0 0 700 700" role="img" aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces.">
+    <svg class="scene-fallback" viewBox="0 0 700 700" role="img" aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds.">
       <defs><pattern id="puzzle-grid" width="43" height="43" patternUnits="userSpaceOnUse"><rect width="37" height="37" rx="8" fill="#699fb1"/></pattern></defs>
+      <g data-fallback="intro" transform="rotate(-9 350 350)">
+        <ellipse cx="350" cy="350" rx="252" ry="202" fill="none" stroke="#b5c7bf" stroke-opacity=".2"/>
+        <path d="M159 245H278V280H197V329H260V365H197V418H278V453H159ZM530 291C506 241 444 227 400 255C346 290 345 392 395 432C439 469 512 457 534 408V345H441V380H498V398C478 431 438 430 414 407C382 377 384 310 415 285C442 264 476 276 493 303Z" fill="#e5ebe1"/>
+        <path d="M300 466L352 230" fill="none" stroke="#59d3aa" stroke-width="22" stroke-linecap="round"/>
+        <rect x="144" y="161" width="25" height="25" rx="7" fill="#59d3aa"/>
+        <circle cx="578" cy="323" r="12" fill="#f4402e"/>
+        <path d="M269 539L283 553L269 567L255 553Z" fill="#d5b478"/>
+      </g>
       <g data-fallback="play" transform="rotate(-9 350 350)">
         <rect x="170" y="170" width="360" height="360" rx="25" fill="#075b78" stroke="#fff6de" stroke-width="6"/>
         <rect x="180" y="180" width="340" height="340" rx="15" fill="url(#puzzle-grid)"/>
@@ -45,33 +53,43 @@
         <path d="M41 54L46 49L55 59L51 63ZM17 59L26 49L31 54L21 63ZM49 63L54 59L60 66L55 70ZM12 66L18 59L23 63L17 70ZM36 12L39 17L36 22L33 17Z" fill="#d5b478"/>
       </g>
     </svg>
-    <canvas id="world-scene" aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces."></canvas>
-    <div class="scene-caption"><span class="scene-world">01 / BLOCK BLUUP</span><span class="scene-hint">MOVE TO EXPLORE <span aria-hidden="true">⤢</span></span></div>
+    <canvas id="world-scene" aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds."></canvas>
+    <div class="scene-caption"><span class="scene-world">00 / THE MAKER</span><span class="scene-hint">SCROLL TO TRANSFORM <span aria-hidden="true">↓</span></span></div>
+    <nav class="journey-rail" aria-label="Journey through the portfolio">
+      <a href="#top" data-world="intro" aria-current="location"><span>INTRO</span><i aria-hidden="true"></i></a>
+      <a href="#block-bluup" data-world="play"><span>01 / PLAY</span><i aria-hidden="true"></i></a>
+      <a href="#gece-dosyasi" data-world="story"><span>02 / WONDER</span><i aria-hidden="true"></i></a>
+      <a href="#kalradya" data-world="connect"><span>03 / CONNECT</span><i aria-hidden="true"></i></a>
+    </nav>
   </div>
 
   <main id="content">
     <div class="world-journey">
-      <section class="hero" aria-labelledby="hero-title" data-scene="play">
+      <section class="hero" aria-labelledby="hero-title" data-scene="intro">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> EMIRHAN GÜRKAN / INDEPENDENT CREATOR</p>
-          <h1 id="hero-title">IDEAS,<br>IN <em>PLAY.</em></h1>
-          <p class="hero-description">Games to get lost in.<br>Tools that bring people together.<br>Stories that stay with you.</p>
+          <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> SOFTWARE ENGINEER / INDEPENDENT CREATOR</p>
+          <h1 id="hero-title">EMIRHAN<br><em>GÜRKAN.</em></h1>
+          <p class="hero-description">From industrial software to playful worlds.<br>I turn ideas into things you can use,<br>play with and get lost in.</p>
           <div class="hero-actions">
             <a class="hero-email" href="mailto:emrgrkan_4114@outlook.com"><small>GET IN TOUCH</small><span>emrgrkan_4114@outlook.com <i aria-hidden="true">↗</i></span></a>
             <a class="enter-link" href="#projeler"><span class="round-arrow" aria-hidden="true">↙</span><span>EXPLORE THE WORLDS<small>THREE WAYS TO FOLLOW MY CURIOSITY</small></span></a>
           </div>
         </div>
-        <div class="hero-bottom"><span class="hero-bottom-note">ONE CURIOUS MIND.<br>THREE DIFFERENT WORLDS.</span><div class="world-switcher" role="group" aria-label="Explore the project worlds"><button type="button" data-world="play" aria-pressed="true"><small>01</small> PLAY <span aria-hidden="true">↗</span><b class="switch-project">BLOCK BLUUP</b></button><button type="button" data-world="story" aria-pressed="false"><small>02</small> WONDER <span aria-hidden="true">↗</span><b class="switch-project">GECE DOSYASI</b></button><button type="button" data-world="connect" aria-pressed="false"><small>03</small> CONNECT <span aria-hidden="true">↗</span><b class="switch-project">KALRADYA CO-OP</b></button></div></div>
+        <div class="hero-bottom"><span class="hero-bottom-note">ONE CURIOUS MIND.<br>THREE DIFFERENT WORLDS.</span><nav class="world-index" aria-label="Selected projects"><a href="#block-bluup"><small>01</small> PLAY <span aria-hidden="true">↓</span><b>BLOCK BLUUP</b></a><a href="#gece-dosyasi"><small>02</small> WONDER <span aria-hidden="true">↓</span><b>GECE DOSYASI</b></a><a href="#kalradya"><small>03</small> CONNECT <span aria-hidden="true">↓</span><b>KALRADYA CO-OP</b></a></nav></div>
       </section>
 
       <div class="work-divider wrap" id="projeler"><span>SELECTED WORLDS</span><span>SCROLL TO ENTER ↓</span><span>01 — 03</span></div>
 
       <section class="chapter chapter-play" id="block-bluup" data-scene="play" aria-labelledby="play-title">
-        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">01</span> MOBILE GAME / UNITY · C#</p><h2 id="play-title">SMALL<br>MOVES.<br><em>BIG PLAY.</em></h2><p class="project-name">BLOCK BLUUP</p><p class="chapter-description">Find the right fit. Clear a little space. Make room for your next move. A colorful mobile puzzle game built around the pleasure of one more try.</p><a class="project-link" href="https://play.google.com/store/apps/details?id=com.blockbluup.oyun">Explore on Google Play <span aria-hidden="true">↗</span></a><a class="project-email" href="mailto:zenithmedyakocaeli@gmail.com"><small>PROJECT CONTACT</small>zenithmedyakocaeli@gmail.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">01</span>
+        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">01</span> MOBILE GAME / UNITY · C#</p><h2 id="play-title">SMALL<br>MOVES.<br><em>BIG PLAY.</em></h2><p class="project-name">BLOCK BLUUP</p><p class="chapter-description">Find the right fit. Clear a little space. Make room for your next move. A colorful mobile puzzle game built around the pleasure of one more try.</p><a class="project-link" href="https://play.google.com/store/apps/details?id=com.blockbluup.oyun">Explore on Google Play <span aria-hidden="true">↗</span></a>
+          <nav class="project-socials" aria-label="Block Bluup social media"><span>FOLLOW THE PLAY</span><div><a href="https://www.instagram.com/blockbluup/">Instagram <i aria-hidden="true">↗</i></a><a href="https://www.tiktok.com/@playblockbluup">TikTok <i aria-hidden="true">↗</i></a><a href="https://www.youtube.com/@blockbluup">YouTube <i aria-hidden="true">↗</i></a></div></nav>
+          <a class="project-email" href="mailto:zenithmedyakocaeli@gmail.com"><small>PROJECT CONTACT</small>zenithmedyakocaeli@gmail.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">01</span>
       </section>
 
       <section class="chapter chapter-story" id="gece-dosyasi" data-scene="story" aria-labelledby="story-title">
-        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">02</span> VIDEO STORIES / IN TURKISH</p><h2 id="story-title">LOOK<br>A LITTLE<br><em>CLOSER.</em></h2><p class="project-name">GECE DOSYASI</p><p class="chapter-description">History, legends and the questions they leave behind. Narrated stories for the part of you that always wants to know what happened next.</p><a class="project-link" href="https://www.youtube.com/@gecedosyasiarsivi">Step into Gece Dosyası <span aria-hidden="true">↗</span></a><a class="project-email" href="mailto:gecedosyasi@outlook.com"><small>PROJECT CONTACT</small>gecedosyasi@outlook.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">02</span>
+        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">02</span> VIDEO STORIES / IN TURKISH</p><h2 id="story-title">LOOK<br>A LITTLE<br><em>CLOSER.</em></h2><p class="project-name">GECE DOSYASI</p><p class="chapter-description">History, legends and the questions they leave behind. Narrated stories for the part of you that always wants to know what happened next.</p><a class="project-link" href="https://www.youtube.com/@gecedosyasiarsivi">Step into Gece Dosyası <span aria-hidden="true">↗</span></a>
+          <nav class="project-socials" aria-label="Gece Dosyası social media"><span>FOLLOW THE STORIES</span><div><a href="https://www.youtube.com/@gecedosyasiarsivi">YouTube <i aria-hidden="true">↗</i></a><a href="https://www.instagram.com/gecedosyasiarsivi/">Instagram <i aria-hidden="true">↗</i></a><a href="https://www.tiktok.com/@gecedosyasiarsivi">TikTok <i aria-hidden="true">↗</i></a><a href="https://www.facebook.com/people/Gece-Dosyas%C4%B1/61595583212387/">Facebook <i aria-hidden="true">↗</i></a></div></nav>
+          <a class="project-email" href="mailto:gecedosyasi@outlook.com"><small>PROJECT CONTACT</small>gecedosyasi@outlook.com <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">02</span>
       </section>
 
       <section class="chapter chapter-connect" id="kalradya" data-scene="connect" aria-labelledby="connect-title">
@@ -79,7 +97,7 @@
       </section>
     </div>
 
-    <section class="about-section" id="hakkimda" aria-labelledby="about-title"><div class="wrap"><p class="eyebrow">THE PERSON BEHIND THE WORLDS</p><h2 id="about-title">CURIOUS,<br><em>BY DEFAULT.</em></h2><div class="about-detail"><p class="about-name">I’m Emirhan Gürkan.<span>Developer. Maker. Storyteller.</span></p><div><p>I like the point where an idea starts becoming something real. Sometimes that’s a game. Sometimes it’s a tool that makes things easier. Sometimes it’s a story I can’t stop following.</p><p>I work with Unity, C# and web technologies, and bring the same curiosity to Gece Dosyası. Different forms. The same urge to make something worth your time.</p><div class="skill-list"><span>UNITY</span><span>C#</span><span>WEB</span><span>STORYTELLING</span></div></div></div></div></section>
+    <section class="about-section" id="hakkimda" aria-labelledby="about-title"><div class="wrap"><p class="eyebrow">THE PERSON BEHIND THE WORLDS</p><h2 id="about-title">CURIOUS,<br><em>BY DEFAULT.</em></h2><div class="about-detail"><p class="about-name">I’m Emirhan Gürkan.<span>Software engineer. Maker. Storyteller.</span></p><div><p>My professional work connects software with industry: production tracking, system integrations and data tools built with C#, .NET and SQL. I like making complex things easier to understand and use.</p><p>That same curiosity follows me into Unity games, open-source tools and Gece Dosyası. Different forms. The same urge to turn an idea into something worth your time.</p><div class="skill-list"><span>C# / .NET</span><span>SQL</span><span>UNITY</span><span>WEB</span><span>STORYTELLING</span></div></div></div></div></section>
 
     <section class="contact-section" id="iletisim" aria-labelledby="contact-title"><div class="wrap">
       <p class="eyebrow">THE NEXT GOOD THING STARTS SOMEWHERE.</p>
@@ -93,12 +111,10 @@
         <a href="https://www.instagram.com/emirhanguurkan/"><small>01 / BEHIND THE PROJECTS</small>Instagram <span aria-hidden="true">↗</span></a>
         <a href="https://github.com/emirhangurkan"><small>02 / CODE &amp; EXPERIMENTS</small>GitHub <span aria-hidden="true">↗</span></a>
         <a href="https://www.linkedin.com/in/emirhangurkan/"><small>03 / PROFESSIONAL PROFILE</small>LinkedIn <span aria-hidden="true">↗</span></a>
-        <a href="https://www.youtube.com/@gecedosyasiarsivi"><small>04 / GECE DOSYASI</small>YouTube <span aria-hidden="true">↗</span></a>
       </div>
     </div></section>
   </main>
 
   <footer class="site-footer wrap"><span>EMIRHAN GÜRKAN © 2026</span><span>GAMES. TOOLS. STORIES.</span><a href="#top">BACK TO THE SURFACE ↑</a></footer>
-  <div class="world-announcement" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

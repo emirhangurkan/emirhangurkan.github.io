@@ -16,6 +16,50 @@ function tube(parent, points, material, radius = .012) {
   return mesh(parent, new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 96, radius, 8, false), material);
 }
 
+function createIntro() {
+  const group = new THREE.Group();
+  const silver = physical(0xe1e7dd, { metalness: .86, roughness: .25, clearcoat: .5 });
+  const mint = physical(0x79d4af, { metalness: .48, roughness: .23, emissive: 0x144331, emissiveIntensity: .12 });
+  const extrusion = { depth: .29, bevelEnabled: true, bevelSegments: 4, steps: 1, bevelSize: .045, bevelThickness: .045, curveSegments: 32 };
+  const e = new THREE.Shape();
+  [[-2, -1.12], [-.72, -1.12], [-.72, -.76], [-1.58, -.76], [-1.58, -.19], [-.91, -.19], [-.91, .18], [-1.58, .18], [-1.58, .76], [-.72, .76], [-.72, 1.12], [-2, 1.12]].forEach(([x, y], i) => e[i ? 'lineTo' : 'moveTo'](x, y));
+  e.closePath();
+  mesh(group, new THREE.ExtrudeGeometry(e, extrusion), silver, 0, 0, -.1);
+  const g = new THREE.Shape();
+  g.moveTo(1.98, .68);
+  g.bezierCurveTo(1.62, 1.36, .64, 1.35, .21, .67);
+  g.bezierCurveTo(-.12, .14, .01, -.66, .44, -.99);
+  g.bezierCurveTo(1.02, -1.43, 1.94, -1.13, 2.13, -.53);
+  g.lineTo(2.13, .03); g.lineTo(1.14, .03); g.lineTo(1.14, -.32); g.lineTo(1.74, -.32);
+  g.bezierCurveTo(1.59, -.88, .94, -.94, .62, -.58);
+  g.bezierCurveTo(.29, -.21, .38, .48, .74, .69);
+  g.bezierCurveTo(1.06, .91, 1.51, .8, 1.66, .47);
+  g.closePath();
+  mesh(group, new THREE.ExtrudeGeometry(g, extrusion), silver, 0, 0, .02);
+  const slash = mesh(group, new RoundedBoxGeometry(.13, 2.9, .22, 5, .06), mint, -.33, 0, .22);
+  slash.rotation.z = -.19;
+
+  const orbit = new THREE.Group();
+  orbit.rotation.set(.42, -.23, -.2);
+  orbit.position.z = -.68;
+  group.add(orbit);
+  const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x9aafa5, transparent: true, opacity: .22 });
+  mesh(orbit, new THREE.TorusGeometry(2.62, .006, 6, 192), orbitMaterial);
+  const objects = [
+    mesh(orbit, new RoundedBoxGeometry(.25, .25, .25, 3, .06), mint),
+    mesh(orbit, new THREE.SphereGeometry(.12, 24, 16), physical(0xf4402e, { metalness: .5 })),
+    mesh(orbit, new THREE.OctahedronGeometry(.17), physical(0xd5b478, { metalness: .75 }))
+  ];
+  return { group, animate(time) {
+    group.rotation.set(.04, -.2 + Math.sin(time * .18) * .11, -.1);
+    objects.forEach((object, index) => {
+      const angle = index * Math.PI * 2 / 3 + .9 + time * .065;
+      object.position.set(Math.cos(angle) * 2.62, Math.sin(angle) * 2.62, 0);
+      object.rotation.set(time * .18, time * .24, angle);
+    });
+  } };
+}
+
 // The four original piece colors and the board palette come from BlockBluupTheme.cs.
 function createPlay() {
   const group = new THREE.Group();
@@ -215,9 +259,14 @@ function createConnect() {
 }
 
 export function createProjectWorlds() {
-  const worlds = { play: createPlay(), story: createStory(), connect: createConnect() };
+  const worlds = { intro: createIntro(), play: createPlay(), story: createStory(), connect: createConnect() };
+  const sculptures = Object.fromEntries(Object.entries(worlds).map(([name, world]) => {
+    const transitionGroup = new THREE.Group();
+    transitionGroup.add(world.group);
+    return [name, transitionGroup];
+  }));
   return {
-    sculptures: Object.fromEntries(Object.entries(worlds).map(([name, world]) => [name, world.group])),
-    animate(time) { Object.values(worlds).forEach(world => { if (world.group.visible) world.animate(time); }); }
+    sculptures,
+    animate(time) { Object.entries(worlds).forEach(([name, world]) => { if (sculptures[name].visible) world.animate(time); }); }
   };
 }

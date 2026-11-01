@@ -1,44 +1,41 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createProjectWorlds } from './project-worlds.js';
+import { journeyPosition } from './scroll-journey.js';
 
 const body = document.body;
 const shell = document.querySelector('.scene-shell');
 const canvas = document.querySelector('#world-scene');
-const switches = [...document.querySelectorAll('.world-switcher button[data-world]')];
+const journeyLinks = [...document.querySelectorAll('.journey-rail a[data-world]')];
 const sections = [...document.querySelectorAll('[data-scene]')];
-const captions = { play: '01 / BLOCK BLUUP', story: '02 / GECE DOSYASI', connect: '03 / KALRADYA CO-OP' };
-const descriptions = { play: 'A floating Block Bluup puzzle board with colorful, rounded pieces.', story: 'The Gece Dosyası fingerprint question mark, sculpted in red.', connect: 'The Kalradya Co-op bronze shield and crossed swords.' };
-const labels = { play: 'Block Bluup: a world to play in.', story: 'Gece Dosyası: a world to look closer at.', connect: 'Kalradya Co-op: a world to share.' };
+const worldOrder = sections.map(section => section.dataset.scene);
+const captions = { intro: '00 / THE MAKER', play: '01 / BLOCK BLUUP', story: '02 / GECE DOSYASI', connect: '03 / KALRADYA CO-OP' };
+const descriptions = { intro: 'A sculptural E/G monogram surrounded by the colors of three project worlds.', play: 'A floating Block Bluup puzzle board with colorful, rounded pieces.', story: 'The Gece Dosyası fingerprint question mark, sculpted in red.', connect: 'The Kalradya Co-op bronze shield and crossed swords.' };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-let currentSection = sections[0];
-let currentWorld = 'play';
-let setSculpture = () => {};
+let currentWorld = 'intro';
+let scrollPosition = 0;
 let wakeScene = () => {};
 
-function setWorld(world, announce = false) {
+function setWorld(world) {
   if (!Object.hasOwn(captions, world)) return;
   currentWorld = world;
   body.dataset.world = world;
   canvas.setAttribute('aria-label', descriptions[world]);
   document.querySelector('.scene-fallback').setAttribute('aria-label', descriptions[world]);
-  switches.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.world === world)));
+  journeyLinks.forEach(link => {
+    if (link.dataset.world === world) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
   document.querySelector('.scene-world').textContent = captions[world];
-  if (announce) document.querySelector('.world-announcement').textContent = labels[world];
-  setSculpture(world);
 }
-switches.forEach(button => button.addEventListener('click', () => setWorld(button.dataset.world, true)));
 
 let scrollQueued = false;
 function syncScroll() {
   scrollQueued = false;
-  const marker = innerHeight * .44;
-  const active = sections.find(section => { const rect = section.getBoundingClientRect(); return rect.top <= marker && rect.bottom > marker; });
-  if (active && active !== currentSection) {
-    currentSection = active;
-    setWorld(active.dataset.scene);
-  }
-  body.classList.toggle('chapter-view', currentSection !== sections[0]);
+  scrollPosition = journeyPosition(sections.map(section => section.getBoundingClientRect().top), innerHeight);
+  const activeWorld = worldOrder[Math.round(scrollPosition)];
+  if (activeWorld !== currentWorld) setWorld(activeWorld);
+  body.classList.toggle('chapter-view', scrollPosition > .5);
   const muted = document.querySelector('.about-section').getBoundingClientRect().top < innerHeight * .6;
   body.classList.toggle('scene-muted', muted);
   const range = document.documentElement.scrollHeight - innerHeight;
@@ -108,6 +105,8 @@ try {
   let start = performance.now();
   let last = start;
   let clock = 0;
+  let renderedPosition = scrollPosition;
+  const worldColors = { intro: new THREE.Color(0xb7d5c4), play: new THREE.Color(0x48bfe8), story: new THREE.Color(0xe8b35a), connect: new THREE.Color(0xd5b478) };
 
   function render(time) {
     frame = 0;
@@ -119,22 +118,26 @@ try {
     root.rotation.x = easedPointer.y * .14;
     root.position.y = reduced.matches ? 0 : Math.sin(clock * .55) * .075;
     root.scale.setScalar(innerWidth < 761 ? .76 : .84);
-    for (const [name, sculpture] of Object.entries(sculptures)) {
-      const target = name === currentWorld ? 1 : .001;
-      const size = reduced.matches ? target : THREE.MathUtils.damp(sculpture.scale.x, target, 6, delta);
-      sculpture.scale.setScalar(size);
-      sculpture.visible = size > .004;
-    }
+    renderedPosition = reduced.matches ? Math.round(scrollPosition)
+      : Math.abs(renderedPosition - scrollPosition) > 1.1 ? scrollPosition
+      : THREE.MathUtils.damp(renderedPosition, scrollPosition, 12, delta);
+    worldOrder.forEach((name, index) => {
+      const sculpture = sculptures[name];
+      const distance = index - renderedPosition;
+      const amount = Math.min(1, Math.abs(distance));
+      sculpture.visible = amount < .999;
+      sculpture.scale.setScalar(1 - amount * .28);
+      sculpture.position.set(distance * .28, -distance * 5.2, -amount * 1.3);
+      sculpture.rotation.y = distance * .3;
+    });
     animate(clock);
-    const color = currentWorld === 'story' ? 0xe8b35a : currentWorld === 'connect' ? 0xd5b478 : 0x48bfe8;
-    rim.color.lerp(new THREE.Color(color), reduced.matches ? 1 : .035);
-    stars.material.color.lerp(new THREE.Color(color), reduced.matches ? 1 : .035);
+    rim.color.lerp(worldColors[currentWorld], reduced.matches ? 1 : .035);
+    stars.material.color.lerp(worldColors[currentWorld], reduced.matches ? 1 : .035);
     renderer.render(scene, camera);
     body.classList.add('scene-ready');
     if (!reduced.matches && !document.hidden && !body.classList.contains('scene-muted')) frame = requestAnimationFrame(render);
   }
   wakeScene = () => { if (!frame && !document.hidden && !contextLost) { last = performance.now(); frame = requestAnimationFrame(render); } };
-  setSculpture = () => wakeScene();
   function resize() {
     const width = shell.clientWidth;
     const height = shell.clientHeight;
