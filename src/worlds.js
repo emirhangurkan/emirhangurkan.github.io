@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createProjectWorlds } from './project-worlds.js';
 import { journeyPosition } from './scroll-journey.js';
+import { initLanguage, sceneCopy } from './language.js';
 
 const body = document.body;
 const shell = document.querySelector('.scene-shell');
@@ -9,24 +10,24 @@ const canvas = document.querySelector('#world-scene');
 const journeyLinks = [...document.querySelectorAll('.journey-rail a[data-world]')];
 const sections = [...document.querySelectorAll('[data-scene]')];
 const worldOrder = sections.map(section => section.dataset.scene);
-const captions = { intro: '00 / THE MAKER', play: '01 / BLOCK BLUUP', story: '02 / GECE DOSYASI', connect: '03 / KALRADYA CO-OP' };
-const descriptions = { intro: 'A sculptural E/G monogram surrounded by the colors of three project worlds.', play: 'A floating Block Bluup puzzle board with colorful, rounded pieces.', story: 'The Gece Dosyası fingerprint question mark, sculpted in red.', connect: 'The Kalradya Co-op bronze shield and crossed swords.' };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let currentWorld = 'intro';
+let currentLanguage = 'en';
 let scrollPosition = 0;
 let wakeScene = () => {};
 
 function setWorld(world) {
-  if (!Object.hasOwn(captions, world)) return;
+  if (!Object.hasOwn(sceneCopy[currentLanguage], world)) return;
   currentWorld = world;
   body.dataset.world = world;
-  canvas.setAttribute('aria-label', descriptions[world]);
-  document.querySelector('.scene-fallback').setAttribute('aria-label', descriptions[world]);
+  const [caption, description] = sceneCopy[currentLanguage][world];
+  canvas.setAttribute('aria-label', description);
+  document.querySelector('.scene-fallback').setAttribute('aria-label', description);
   journeyLinks.forEach(link => {
     if (link.dataset.world === world) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
-  document.querySelector('.scene-world').textContent = captions[world];
+  document.querySelector('.scene-world').textContent = caption;
 }
 
 let scrollQueued = false;
@@ -44,7 +45,11 @@ function syncScroll() {
 }
 addEventListener('scroll', () => { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(syncScroll); } }, { passive: true });
 addEventListener('resize', syncScroll, { passive: true });
-syncScroll();
+initLanguage(language => {
+  currentLanguage = language;
+  setWorld(currentWorld);
+  syncScroll();
+});
 
 try {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
