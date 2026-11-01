@@ -3,77 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Games, useful tools and curious stories by Emirhan Gürkan. Explore Block Bluup, Kalradya Co-op and Gece Dosyası.">
-  <meta name="theme-color" content="#f6f3ec">
-  <meta property="og:title" content="Emirhan Gürkan — Code. Play. Stay curious.">
-  <meta property="og:description" content="Three different worlds. One curious maker. Games, software and stories by Emirhan Gürkan.">
+  <meta name="description" content="Step into the worlds of Emirhan Gürkan. Games to play, tools to connect and stories to uncover. Block Bluup, Kalradya Co-op and Gece Dosyası.">
+  <meta name="theme-color" content="#090c10">
+  <meta property="og:title" content="Emirhan Gürkan — Ideas, in play.">
+  <meta property="og:description" content="Games. Tools. Stories. Step into three worlds by one curious maker.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://emirhangurkan.github.io/">
   <link rel="canonical" href="https://emirhangurkan.github.io/">
-  <title>Emirhan Gürkan — Games, Tools &amp; Stories</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="portfolio-studio.css">
-  <script src="portfolio-studio.js" defer></script>
+  <link rel="stylesheet" href="worlds-v1.css">
+  <script type="module" src="worlds-v1.js"></script>
+  <title>Emirhan Gürkan — Ideas, in play.</title>
 </head>
-<body>
+<body data-world="play">
   <a class="skip-link" href="#content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="top">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Emirhan Gürkan, home"><span class="brand-symbol">eg<span>✳</span></span><span class="brand-name">EMIRHAN<br>GÜRKAN</span></a>
-      <nav aria-label="Main navigation"><a href="#projeler">The work</a><a href="#hakkimda">The person</a><a class="nav-hello" href="#iletisim">Say hello <span aria-hidden="true">↗</span></a></nav>
-    </div>
+    <a class="wordmark" href="#top" aria-label="Emirhan Gürkan, home"><span class="monogram">E<span>/</span>G</span><span>EMIRHAN<br>GÜRKAN</span></a>
+    <nav aria-label="Main navigation"><a href="#projeler">The worlds <span>03</span></a><a href="#hakkimda">About</a><a class="nav-contact" href="#iletisim">Let’s talk <span aria-hidden="true">↗</span></a></nav>
   </header>
 
+  <div class="scene-shell" aria-label="Interactive abstract sculpture. Move the pointer or drag to rotate it.">
+    <div class="scene-aura" aria-hidden="true"></div>
+    <svg class="scene-fallback" viewBox="0 0 700 700" role="img" aria-label="An abstract interwoven sculpture">
+      <defs><linearGradient id="sculpture" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#baf9e9"/><stop offset=".28" stop-color="#279eac"/><stop offset=".52" stop-color="#e4e5ff"/><stop offset=".7" stop-color="#4b5d96"/><stop offset="1" stop-color="#80e2c2"/></linearGradient></defs>
+      <g fill="none" stroke="url(#sculpture)" stroke-width="43"><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(-37 350 350)"/><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(23 350 350)"/><ellipse cx="350" cy="350" rx="215" ry="122" transform="rotate(83 350 350)"/></g>
+    </svg>
+    <canvas id="world-scene" aria-label="A sculpture that transforms between playful blocks, a question and connected rings"></canvas>
+    <div class="scene-caption"><span class="scene-world">01 / THE PLAY WORLD</span><span class="scene-hint">MOVE TO EXPLORE <span aria-hidden="true">⤢</span></span></div>
+  </div>
+
   <main id="content">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✳</span> INDEPENDENT MAKER. ENDLESSLY CURIOUS.</p>
-        <h1 id="hero-title">Code. Play.<br><span class="curious">Stay curious.<svg viewBox="0 0 540 28" aria-hidden="true"><path d="M5 17Q160 2 532 12M75 23Q308 9 485 20"/></svg></span></h1>
-        <p class="hero-intro">Hi, I’m Emirhan. I make games to get lost in, tools to make things easier, and stories that make you look closer.</p>
-        <div class="hero-actions"><a class="button button-ink" href="#projeler">Step into my world <span aria-hidden="true">↘</span></a><a class="underlined" href="https://www.instagram.com/emirhanguurkan/">Find me on Instagram <span aria-hidden="true">↗</span></a></div>
-        <p class="hero-note">A few different interests. A lot of making.</p>
-      </div>
-
-      <div class="worlds" data-active-world="games" aria-label="Explore my creative worlds">
-        <div class="worlds-caption"><span class="handwritten">a peek into my world</span><svg viewBox="0 0 70 50" aria-hidden="true"><path d="M5 8Q55 0 53 38M43 30L53 41L64 29"/></svg></div>
-        <div class="world-stage">
-          <span class="stage-orbit" aria-hidden="true"></span><span class="stage-cross" aria-hidden="true">+</span>
-          <a class="world-card world-game" href="#block-bluup" aria-label="Explore Block Bluup"><span class="card-caption">01 / PLAY</span><img src="assets/block-bluup-artwork.jpg" width="1080" height="1920" alt="" fetchpriority="high"><span class="game-card-name">Block Bluup <span>↗</span></span></a>
-          <a class="world-card world-story" href="#gece-dosyasi" aria-label="Explore Gece Dosyası"><span class="card-caption">02 / WONDER</span><img src="assets/gece-dosyasi-mark.webp" width="1254" height="1254" alt=""><span class="story-card-name">GECE<br>DOSYASI<span>STORIES AFTER DARK ↗</span></span></a>
-          <a class="world-card world-tool" href="#kalradya" aria-label="Explore Kalradya Co-op"><span class="card-caption">03 / BUILD <span class="terminal-dots" aria-hidden="true">● ● ●</span></span><span class="tool-card-name">Better<br>together.</span><span class="tool-card-footer">KALRADYA CO-OP <span>↗</span></span></a>
-          <span class="stage-sticker" aria-hidden="true">MADE<br>WITH<br>CURIOSITY <span>✳</span></span>
+    <div class="world-journey">
+      <section class="hero" aria-labelledby="hero-title" data-scene="play">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> EMIRHAN GÜRKAN / INDEPENDENT CREATOR</p>
+          <h1 id="hero-title">IDEAS,<br>IN <em>PLAY.</em></h1>
+          <p class="hero-description">Games to get lost in.<br>Tools that bring people together.<br>Stories that stay with you.</p>
+          <a class="enter-link" href="#projeler"><span class="round-arrow" aria-hidden="true">↙</span><span>EXPLORE THE WORLDS<small>THREE WAYS TO FOLLOW MY CURIOSITY</small></span></a>
         </div>
-        <div class="world-picker" role="group" aria-label="Bring a creative world into focus"><button type="button" data-world="games" aria-pressed="true">01 Games</button><button type="button" data-world="stories" aria-pressed="false">02 Stories</button><button type="button" data-world="tools" aria-pressed="false">03 Tools</button></div>
-        <p class="world-description" aria-live="polite">Block Bluup — a little room to play.</p>
-      </div>
-    </section>
+        <div class="hero-bottom"><span class="hero-bottom-note">ONE CURIOUS MIND.<br>THREE DIFFERENT WORLDS.</span><div class="world-switcher" role="group" aria-label="Transform the sculpture"><button type="button" data-world="play" aria-pressed="true"><small>01</small> PLAY <span aria-hidden="true">↗</span></button><button type="button" data-world="story" aria-pressed="false"><small>02</small> WONDER <span aria-hidden="true">↗</span></button><button type="button" data-world="connect" aria-pressed="false"><small>03</small> CONNECT <span aria-hidden="true">↗</span></button></div></div>
+      </section>
 
-    <div class="interest-strip" aria-hidden="true"><div class="wrap"><span>PLAYFUL EXPERIENCES</span><b>✳</b><span>USEFUL SOFTWARE</span><b>✳</b><span>CURIOUS STORIES</span><b>✳</b></div></div>
+      <div class="work-divider wrap" id="projeler"><span>SELECTED WORLDS</span><span>SCROLL TO ENTER ↓</span><span>01 — 03</span></div>
 
-    <section class="work-section wrap" id="projeler" aria-labelledby="work-title">
-      <div class="section-heading"><div><p class="eyebrow">A FEW THINGS I’VE BEEN MAKING / 01</p><h2 id="work-title">Different worlds.<br><em>Same curiosity.</em></h2></div><p>A game, a storytelling project and a tool for playing together. Come take a look.</p></div>
+      <section class="chapter chapter-play" id="block-bluup" data-scene="play" aria-labelledby="play-title">
+        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">01</span> MOBILE GAME / UNITY · C#</p><h2 id="play-title">SMALL<br>MOVES.<br><em>BIG PLAY.</em></h2><p class="project-name">BLOCK BLUUP</p><p class="chapter-description">Find the right fit. Clear a little space. Make room for your next move. A colorful mobile puzzle game built around the pleasure of one more try.</p><a class="project-link" href="https://play.google.com/store/apps/details?id=com.blockbluup.oyun">Explore on Google Play <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">01</span>
+      </section>
 
-      <article class="project project-bluup" id="block-bluup">
-        <div class="project-copy"><p class="project-label"><span>01 / MOBILE GAME</span><span aria-hidden="true">✳</span></p><div><h3>Small blocks.<br><em>Big possibilities.</em></h3><p class="project-name">BLOCK BLUUP</p><p class="project-summary">A colorful puzzle game about finding the right fit. Place pieces, clear rows and columns, and leave a little room for your next move.</p><div class="tags"><span>Unity</span><span>C#</span><span>Android</span></div><a class="button button-ink" href="https://play.google.com/store/apps/details?id=com.blockbluup.oyun">Explore on Google Play <span aria-hidden="true">↗</span></a></div></div>
-        <div class="bluup-art"><span class="art-orbit" aria-hidden="true"></span><span class="art-star" aria-hidden="true">✳</span><div class="phone"><img src="assets/block-bluup-artwork.jpg" width="1080" height="1920" alt="Block Bluup promotional artwork featuring a colorful block puzzle" loading="lazy"></div><span class="art-bottom">ONE MORE MOVE? <span>BLOCK BLUUP ↗</span></span></div>
-      </article>
+      <section class="chapter chapter-story" id="gece-dosyasi" data-scene="story" aria-labelledby="story-title">
+        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">02</span> VIDEO STORIES / IN TURKISH</p><h2 id="story-title">LOOK<br>A LITTLE<br><em>CLOSER.</em></h2><p class="project-name">GECE DOSYASI</p><p class="chapter-description">History, legends and the questions they leave behind. Narrated stories for the part of you that always wants to know what happened next.</p><a class="project-link" href="https://www.youtube.com/@gecedosyasiarsivi">Step into Gece Dosyası <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">02</span>
+      </section>
 
-      <article class="project project-gece" id="gece-dosyasi">
-        <div class="gece-art"><span class="file-tab">GECE DOSYASI / THE NIGHT FILE</span><div class="fingerprint-frame"><img src="assets/gece-dosyasi-mark.webp" width="1254" height="1254" alt="Gece Dosyası’s red fingerprint question mark logo" loading="lazy"></div><span class="gece-art-label">LOOK A LITTLE CLOSER.</span><span class="paper-note" aria-hidden="true">every story<br>starts with<br><em>a question.</em></span></div>
-        <div class="project-copy"><p class="project-label"><span>02 / STORYTELLING</span><span>IN TURKISH</span></p><div><h3>Some stories<br><em>stay with you.</em></h3><p class="project-name">GECE DOSYASI</p><p class="project-summary">History, legends and the questions they leave behind. A Turkish video storytelling project that brings the curious, the forgotten and the unexplained into focus.</p><div class="tags"><span>Research</span><span>Visual storytelling</span><span>Video</span></div><a class="button button-paper" href="https://www.youtube.com/@gecedosyasiarsivi">Open the archive <span aria-hidden="true">↗</span></a></div></div>
-      </article>
+      <section class="chapter chapter-connect" id="kalradya" data-scene="connect" aria-labelledby="connect-title">
+        <div class="chapter-copy"><p class="eyebrow"><span class="chapter-index">03</span> OPEN-SOURCE TOOL / C# · WINDOWS</p><h2 id="connect-title">BETTER.<br><em>TOGETHER.</em></h2><p class="project-name">KALRADYA CO-OP</p><p class="chapter-description">Less setting up. More playing together. An open-source companion that helps Bannerlord co-op players prepare servers, connect and manage their saves.</p><a class="project-link" href="https://github.com/emirhangurkan/Kalradya-Coop">Explore the project <span aria-hidden="true">↗</span></a></div><span class="chapter-backdrop" aria-hidden="true">03</span>
+      </section>
+    </div>
 
-      <article class="project project-kalradya" id="kalradya">
-        <div class="project-copy"><p class="project-label"><span>03 / OPEN-SOURCE TOOL</span><span aria-hidden="true">↔</span></p><div><h3>More playing.<br><em>Less setting up.</em></h3><p class="project-name">KALRADYA CO-OP</p><p class="project-summary">A Windows companion for Bannerlord co-op. Prepare your server, connect with friends and manage your saves, with a simpler place to start.</p><div class="tags"><span>C#</span><span>Windows</span><span>Open source</span></div><a class="button button-ink" href="https://github.com/emirhangurkan/Kalradya-Coop">Explore on GitHub <span aria-hidden="true">↗</span></a></div></div>
-        <div class="kalradya-art" role="img" aria-label="Illustration of two players connecting through Kalradya Co-op"><div class="connection-sketch"><span class="sketch-top">GOOD GAMES ARE BETTER TOGETHER.</span><div class="players"><div class="player player-one"><span>01</span><b>YOU</b></div><div class="connection-path"><span>✳</span><i></i></div><div class="player player-two"><span>02</span><b>YOUR FRIEND</b></div></div><div class="sketch-bottom"><span>KALRADYA CO-OP</span><span>LET’S PLAY ↗</span></div></div></div>
-      </article>
-    </section>
+    <section class="about-section" id="hakkimda" aria-labelledby="about-title"><div class="wrap"><p class="eyebrow">THE PERSON BEHIND THE WORLDS</p><h2 id="about-title">CURIOUS,<br><em>BY DEFAULT.</em></h2><div class="about-detail"><p class="about-name">I’m Emirhan Gürkan.<span>Developer. Maker. Storyteller.</span></p><div><p>I like the point where an idea starts becoming something real. Sometimes that’s a game. Sometimes it’s a tool that makes things easier. Sometimes it’s a story I can’t stop following.</p><p>I work with Unity, C# and web technologies, and bring the same curiosity to Gece Dosyası. Different forms. The same urge to make something worth your time.</p><div class="skill-list"><span>UNITY</span><span>C#</span><span>WEB</span><span>STORYTELLING</span></div></div></div></div></section>
 
-    <section class="about-section wrap" id="hakkimda"><div class="about-title"><p class="eyebrow">THE PERSON BEHIND THE PROJECTS / 02</p><h2>Always making<br><em>something.</em></h2><div class="about-scribble" aria-hidden="true"><span>that’s me!</span><svg viewBox="0 0 90 60"><path d="M5 15Q65 0 77 46M65 38L79 49L85 31"/></svg></div></div><div class="about-copy"><p class="about-lead">I’m Emirhan Gürkan.<br>A maker with a few different worlds.</p><p>Sometimes I’m building a game. Sometimes it’s a practical tool. And sometimes I’m following a story to see where it leads.</p><p>I work with Unity, C# and web technologies, and bring the same curiosity to Gece Dosyası. I enjoy the whole process: asking questions, making things, and finding the details that make them feel right.</p><div class="skills"><span>Unity</span><span>C#</span><span>HTML / CSS / JavaScript</span><span>Storytelling</span></div></div></section>
-
-    <section class="contact-section" id="iletisim"><div class="wrap"><div class="contact-intro"><p class="eyebrow">GOOD THINGS START WITH A HELLO / 03</p><span class="contact-star" aria-hidden="true">✳</span><h2>Let’s make<br><em>a connection.</em></h2><p>Have a thought about a project or just want to follow along? You’ll find me here.</p></div><div class="social-links"><a href="https://www.instagram.com/emirhanguurkan/"><span><small>A LOOK BEHIND THE PROJECTS</small>Instagram</span><b aria-hidden="true">↗</b></a><a href="https://github.com/emirhangurkan"><span><small>CODE &amp; OPEN-SOURCE WORK</small>GitHub</span><b aria-hidden="true">↗</b></a><a href="https://www.youtube.com/@gecedosyasiarsivi"><span><small>STEP INTO GECE DOSYASI</small>YouTube</span><b aria-hidden="true">↗</b></a></div></div></section>
+    <section class="contact-section" id="iletisim" aria-labelledby="contact-title"><div class="wrap"><p class="eyebrow">THE NEXT GOOD THING STARTS SOMEWHERE.</p><a class="contact-title" href="https://www.instagram.com/emirhanguurkan/"><h2 id="contact-title">LET’S<br><em>TALK.</em></h2><span aria-hidden="true">↗</span></a><div class="contact-links"><a href="https://www.instagram.com/emirhanguurkan/"><small>01 / BEHIND THE PROJECTS</small>Instagram <span aria-hidden="true">↗</span></a><a href="https://github.com/emirhangurkan"><small>02 / CODE &amp; EXPERIMENTS</small>GitHub <span aria-hidden="true">↗</span></a><a href="https://www.youtube.com/@gecedosyasiarsivi"><small>03 / GECE DOSYASI</small>YouTube <span aria-hidden="true">↗</span></a></div></div></section>
   </main>
 
-  <footer class="wrap site-footer"><a class="footer-name" href="#top">EMIRHAN GÜRKAN <span>✳</span></a><span>GAMES. TOOLS. STORIES. / © 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
+  <footer class="site-footer wrap"><span>EMIRHAN GÜRKAN © 2026</span><span>GAMES. TOOLS. STORIES.</span><a href="#top">BACK TO THE SURFACE ↑</a></footer>
+  <div class="world-announcement" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
