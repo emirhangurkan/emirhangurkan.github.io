@@ -1,4 +1,4 @@
-// Loaded only after an explicit “Explore in 3D” click.
+// Starts automatically after the first paint; renders only on interaction or layout changes.
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createProjectWorlds } from './project-worlds.js';
@@ -31,10 +31,10 @@ export function createScene({ canvas, shell, onFailure }) {
   const root = new THREE.Group();
   scene.add(root);
   const { getWorld, animate } = createProjectWorlds();
-  const names = ['play', 'story', 'connect'];
-  const colors = { play: 0x48bfe8, story: 0xe8b35a, connect: 0xd5b478 };
+  const names = ['intro', 'play', 'story', 'connect'];
+  const colors = { intro: 0xb7d5c4, play: 0x48bfe8, story: 0xe8b35a, connect: 0xd5b478 };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let state = { position: 0, world: 'play', muted: false };
+  let state = { position: 0, world: 'intro', muted: false };
   let active = false, contextLost = false, frame = 0, dragging = false;
   let pointerX = 0, dragRotation = 0, tiltX = 0, tiltY = 0;
   let lastWidth = 0, lastHeight = 0;
@@ -51,7 +51,7 @@ export function createScene({ canvas, shell, onFailure }) {
       lastWidth = width; lastHeight = height;
     }
     root.rotation.set(reduced.matches ? 0 : tiltY, dragRotation + (reduced.matches ? 0 : tiltX), 0);
-    root.scale.setScalar(.7);
+    root.scale.setScalar(state.world === 'intro' ? .84 : .7);
     for (const [index, name] of names.entries()) {
       const distance = index - state.position;
       const visible = Math.abs(distance) < .999;

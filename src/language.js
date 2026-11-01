@@ -12,7 +12,7 @@ const turkish = {
   heroDescription: 'Endüstriyel yazılımlardan oyun dolu dünyalara.<br>Fikirleri kullanabileceğin, oynayabileceğin<br>ve içinde kaybolabileceğin şeylere dönüştürüyorum.',
   getInTouch: 'İLETİŞİME GEÇ',
   exploreWorlds: 'DÜNYALARI KEŞFET<small>MERAKIMIN PEŞİNDEN ÜÇ FARKLI YOL</small>',
-  heroNote: '<span class="scroll-cue" aria-hidden="true">↓</span> SAHNEYİ DEĞİŞTİRMEK İÇİN KAYDIR.<br>BİR ÜRETİCİ. ÜÇ DÜNYA.',
+  heroNote: '<span class="scroll-cue" aria-hidden="true">↓</span> YAZILIM. OYUN. HİKÂYELER.<br>ÇALIŞMALARIMI KEŞFETMEK İÇİN KAYDIR.',
   indexPlay: '<small>01</small> OYNA <span aria-hidden="true">↓</span><b>BLOCK BLUUP</b>',
   indexStory: '<small>02</small> KEŞFET <span aria-hidden="true">↓</span><b>GECE DOSYASI</b>',
   indexConnect: '<small>03</small> BİRLİKTE <span aria-hidden="true">↓</span><b>KALRADYA CO-OP</b>',
@@ -46,7 +46,7 @@ const turkish = {
 
 const turkishAria = {
   home: 'Emirhan Gürkan, ana sayfa', navigation: 'Ana gezinme',
-  interactiveScene: 'Kaydırdıkça değişen proje çizimleri. İsteğe bağlı 3D görünüm açılabilir.',
+  interactiveScene: 'Etkileşimli 3D dünyalar. Fareyi hareket ettirerek veya sürükleyerek keşfet.',
   journey: 'Portfolyoda yolculuk', selectedProjects: 'Seçili projeler',
   playSocials: 'Block Bluup sosyal medya hesapları', storySocials: 'Gece Dosyası sosyal medya hesapları',
   storeLinks: 'Block Bluup indirme bağlantıları',
@@ -55,13 +55,13 @@ const turkishAria = {
 
 export const sceneCopy = {
   en: {
-    intro: ['00 / THE MAKER', 'A sculptural E/G monogram surrounded by the colors of three project worlds.'],
+    intro: ['00 / EMIRHAN GÜRKAN', 'A sculptural E/G monogram surrounded by the colors of three project worlds.'],
     play: ['01 / BLOCK BLUUP', 'A floating Block Bluup puzzle board with colorful, rounded pieces.'],
     story: ['02 / GECE DOSYASI', 'The Gece Dosyası fingerprint question mark, sculpted in red.'],
     connect: ['03 / KALRADYA CO-OP', 'The Kalradya Co-op bronze shield and crossed swords.']
   },
   tr: {
-    intro: ['00 / ÜRETİCİ', 'Üç proje dünyasının renkleriyle çevrili, heykelsi bir E/G monogramı.'],
+    intro: ['00 / EMIRHAN GÜRKAN', 'Üç proje dünyasının renkleriyle çevrili, heykelsi bir E/G monogramı.'],
     play: ['01 / BLOCK BLUUP', 'Renkli, yuvarlak parçalarıyla havada süzülen Block Bluup bulmaca tahtası.'],
     story: ['02 / GECE DOSYASI', 'Kırmızı renkte, parmak izi biçimindeki Gece Dosyası soru işareti.'],
     connect: ['03 / KALRADYA CO-OP', 'Kalradya Co-op’un bronz kalkanı ve çapraz kılıçları.']

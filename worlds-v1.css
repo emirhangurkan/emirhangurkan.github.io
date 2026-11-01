@@ -300,3 +300,7 @@ body[data-world="play"] .world-index a[href="#block-bluup"],body[data-world="sto
   .journey-ready .hero { min-height:100svh; }
   .journey-ready .hero-stage { position:relative; top:auto; }
 }
+
+/* The opening belongs to Emirhan; project worlds begin with their own sections. */
+.journey-ready .hero { min-height:100svh; }
+.journey-ready .hero-stage { position:relative; top:auto; }

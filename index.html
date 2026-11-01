@@ -11,11 +11,11 @@
   <meta property="og:url" content="https://emirhangurkan.github.io/">
   <link rel="canonical" href="https://emirhangurkan.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="worlds-v1.css?v=cinema-1">
-  <script type="module" src="worlds-v1.js?v=cinema-1"></script>
+  <link rel="stylesheet" href="worlds-v1.css?v=identity-1">
+  <script type="module" src="worlds-v1.js?v=identity-1"></script>
   <title>Emirhan Gürkan — Software. Play. Stories.</title>
 </head>
-<body data-world="play">
+<body data-world="intro">
   <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header" id="top">
@@ -26,9 +26,18 @@
     </div>
   </header>
 
-  <div class="scene-shell" aria-label="Project artwork changes as you scroll. Optional 3D is available." data-i18n-aria="interactiveScene">
+  <div class="scene-shell" aria-label="Interactive 3D worlds. Move the pointer or drag to explore." data-i18n-aria="interactiveScene">
     <div class="scene-aura" aria-hidden="true"></div>
-    <div class="scene-artwork" role="img" aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces.">
+    <div class="scene-artwork" role="img" aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds.">
+      <div class="world-art" data-art="intro" aria-hidden="true"><svg viewBox="0 0 700 700" focusable="false">      <g  transform="rotate(-9 350 350)">
+        <ellipse cx="350" cy="350" rx="252" ry="202" fill="none" stroke="#b5c7bf" stroke-opacity=".2"/>
+        <path d="M159 245H278V280H197V329H260V365H197V418H278V453H159ZM530 291C506 241 444 227 400 255C346 290 345 392 395 432C439 469 512 457 534 408V345H441V380H498V398C478 431 438 430 414 407C382 377 384 310 415 285C442 264 476 276 493 303Z" fill="#e5ebe1"/>
+        <path d="M300 466L352 230" fill="none" stroke="#59d3aa" stroke-width="22" stroke-linecap="round"/>
+        <rect x="144" y="161" width="25" height="25" rx="7" fill="#59d3aa"/>
+        <circle cx="578" cy="323" r="12" fill="#f4402e"/>
+        <path d="M269 539L283 553L269 567L255 553Z" fill="#d5b478"/>
+      </g>
+</svg></div>
       <div class="world-art" data-art="play" aria-hidden="true">
         <svg viewBox="0 0 700 700" focusable="false">
           <defs><linearGradient id="coral" x2=".3" y2="1"><stop stop-color="#ff8b6e"/><stop offset="1" stop-color="#ed5145"/></linearGradient><linearGradient id="mint" x2=".3" y2="1"><stop stop-color="#8ae5bd"/><stop offset="1" stop-color="#35af97"/></linearGradient><linearGradient id="blue" x2=".3" y2="1"><stop stop-color="#75d9ff"/><stop offset="1" stop-color="#238ddc"/></linearGradient><linearGradient id="gold" x2=".3" y2="1"><stop stop-color="#ffe28c"/><stop offset="1" stop-color="#f2a824"/></linearGradient><linearGradient id="board-edge" x2="0" y2="1"><stop stop-color="#fff6de"/><stop offset="1" stop-color="#799b9b"/></linearGradient></defs>
@@ -69,9 +78,9 @@
         </svg>
       </div>
     </div>
-    <canvas id="world-scene" hidden aria-label="A floating Block Bluup puzzle board with colorful, rounded pieces."></canvas>
-    <div class="scene-topline"><span data-i18n="reelLabel">A FEW WORLDS I’VE BUILT</span><span class="reel-counter">01 / 03</span></div>
-    <div class="scene-caption"><span class="scene-world">01 / BLOCK BLUUP</span><button class="scene-toggle" type="button" aria-pressed="false" hidden>Explore in 3D ↗</button></div>
+    <canvas id="world-scene" hidden aria-label="A sculptural E/G monogram surrounded by the colors of three project worlds."></canvas>
+    <div class="scene-topline"><span data-i18n="reelLabel">EMIRHAN GÜRKAN / SOFTWARE · PLAY · STORIES</span><span class="reel-counter">EG / 00</span></div>
+    <div class="scene-caption"><span class="scene-world">00 / EMIRHAN GÜRKAN</span><button class="scene-toggle" type="button" aria-pressed="false" hidden>Explore in 3D ↗</button></div>
     <p class="scene-status" role="status"></p>
     <nav class="journey-rail" aria-label="Journey through the portfolio" data-i18n-aria="journey">
       <a href="#top" data-world="intro" aria-current="location"><span data-i18n="railIntro">INTRO</span><i aria-hidden="true"></i></a>
@@ -94,7 +103,7 @@
             <a class="enter-link" href="#projeler"><span class="round-arrow" aria-hidden="true">↙</span><span data-i18n="exploreWorlds">EXPLORE THE WORLDS<small>THREE WAYS TO FOLLOW MY CURIOSITY</small></span></a>
           </div>
         </div>
-        <div class="hero-bottom"><span class="hero-bottom-note" data-i18n="heroNote"><span class="scroll-cue" aria-hidden="true">↓</span> SCROLL TO CHANGE THE SCENE.<br>ONE MAKER. THREE WORLDS.</span><nav class="world-index" aria-label="Selected projects" data-i18n-aria="selectedProjects"><a href="#block-bluup" data-i18n="indexPlay"><small>01</small> PLAY <span aria-hidden="true">↓</span><b>BLOCK BLUUP</b></a><a href="#gece-dosyasi" data-i18n="indexStory"><small>02</small> WONDER <span aria-hidden="true">↓</span><b>GECE DOSYASI</b></a><a href="#kalradya" data-i18n="indexConnect"><small>03</small> CONNECT <span aria-hidden="true">↓</span><b>KALRADYA CO-OP</b></a></nav></div>
+        <div class="hero-bottom"><span class="hero-bottom-note" data-i18n="heroNote"><span class="scroll-cue" aria-hidden="true">↓</span> SOFTWARE. PLAY. STORIES.<br>SCROLL TO EXPLORE MY WORK.</span><nav class="world-index" aria-label="Selected projects" data-i18n-aria="selectedProjects"><a href="#block-bluup" data-i18n="indexPlay"><small>01</small> PLAY <span aria-hidden="true">↓</span><b>BLOCK BLUUP</b></a><a href="#gece-dosyasi" data-i18n="indexStory"><small>02</small> WONDER <span aria-hidden="true">↓</span><b>GECE DOSYASI</b></a><a href="#kalradya" data-i18n="indexConnect"><small>03</small> CONNECT <span aria-hidden="true">↓</span><b>KALRADYA CO-OP</b></a></nav></div>
         </div>
       </section>
 

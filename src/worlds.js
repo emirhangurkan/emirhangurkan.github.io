@@ -7,7 +7,7 @@ const canvas = document.querySelector('#world-scene');
 const hero = document.querySelector('.hero');
 const chapters = [...document.querySelectorAll('.chapter[data-scene]')];
 const artwork = [...document.querySelectorAll('.world-art')];
-const worldOrder = ['play', 'story', 'connect'];
+const worldOrder = ['intro', 'play', 'story', 'connect'];
 const rail = [...document.querySelectorAll('.journey-rail a')];
 const progressBar = document.querySelector('.scroll-progress');
 const caption = document.querySelector('.scene-world');
@@ -20,7 +20,7 @@ let geometry, scene, enabled = false, loading = false;
 
 function updateToggle() {
   toggle.textContent = loading ? (language === 'tr' ? '3D açılıyor…' : 'Opening 3D…')
-    : enabled ? (language === 'tr' ? 'Çizime dön ↗' : 'Back to artwork ↗')
+    : enabled ? (language === 'tr' ? 'Hafif görünüm ↗' : 'Light view ↗')
     : (language === 'tr' ? '3D keşfet ↗' : 'Explore in 3D ↗');
   toggle.setAttribute('aria-pressed', String(enabled));
   toggle.setAttribute('aria-busy', String(loading));
@@ -32,7 +32,10 @@ function setWorld(next, force = false) {
   body.dataset.world = next;
   const [label, description] = sceneCopy[language][next];
   caption.textContent = label;
-  counter.textContent = `0${worldOrder.indexOf(next) + 1} / 03`;
+  counter.textContent = next === 'intro' ? 'EG / 00' : `0${worldOrder.indexOf(next)} / 03`;
+  document.querySelector('.scene-topline > span:first-child').textContent = next === 'intro'
+    ? (language === 'tr' ? 'EMIRHAN GÜRKAN / YAZILIM · OYUN · HİKÂYELER' : 'EMIRHAN GÜRKAN / SOFTWARE · PLAY · STORIES')
+    : (language === 'tr' ? 'KURDUĞUM DÜNYALARDAN BİRKAÇI' : 'A FEW WORLDS I’VE BUILT');
   canvas.setAttribute('aria-label', description);
   document.querySelector('.scene-artwork').setAttribute('aria-label', description);
 }
@@ -42,9 +45,7 @@ function syncScroll() {
   const y = scrollY, height = innerHeight;
   intro = y < geometry.chapterTops[0] - height * .78;
   muted = geometry.aboutTop - y < height * .6;
-  position = intro
-    ? Math.min(2, Math.max(0, (y - geometry.heroTop) / geometry.introTravel * 2))
-    : Math.max(0, journeyPosition([geometry.heroTop, ...geometry.chapterTops].map(top => top - y), height) - 1);
+  position = journeyPosition([geometry.heroTop, ...geometry.chapterTops].map(top => top - y), height);
   const painted = reduced.matches ? Math.round(position) : position;
   setWorld(worldOrder[Math.round(position)]);
   body.classList.toggle('chapter-view', !intro);
@@ -81,7 +82,7 @@ addEventListener('pageshow', measure);
 new ResizeObserver(measure).observe(document.querySelector('main'));
 document.querySelector('.store-qr').addEventListener('toggle', measure);
 reduced.addEventListener('change', queueScroll);
-toggle.addEventListener('click', async () => {
+async function toggleScene() {
   if (loading) return;
   if (enabled) {
     enabled = false;
@@ -112,12 +113,13 @@ toggle.addEventListener('click', async () => {
     enabled = false;
     canvas.hidden = true;
     status.textContent = language === 'tr' ? '3D açılamadı. Çizimlerle devam edebilirsin.' : '3D is unavailable. The artwork is still here to explore.';
-    console.warn('Optional 3D could not start.', error);
+    console.warn('3D could not start.', error);
   } finally { loading = false; updateToggle(); }
-});
+}
+toggle.addEventListener('click', toggleScene);
 initLanguage(next => {
   language = next;
-  setWorld(world || 'play', true);
+  setWorld(world || 'intro', true);
   status.textContent = '';
   updateToggle();
   measure();
@@ -125,3 +127,6 @@ initLanguage(next => {
 toggle.hidden = false;
 body.classList.add('journey-ready');
 measure();
+
+// Show the personal introduction first; start 3D automatically after the first paint.
+requestAnimationFrame(() => requestAnimationFrame(() => { if (!enabled && !loading) toggleScene(); }));

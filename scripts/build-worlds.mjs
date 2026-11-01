@@ -18,4 +18,4 @@ if (entry.bytes > 20000 || Object.keys(entry.inputs).some(path => path.includes(
   throw new Error('The initial page must stay under 20 kB and must not bundle Three.js.');
 }
 await copyFile('node_modules/three/LICENSE', 'THREE-LICENSE.txt');
-console.log(`Initial JavaScript: ${entry.bytes} bytes. 3D is a separate, optional download.`);
+console.log(`Initial JavaScript: ${entry.bytes} bytes. 3D starts in a separate chunk after the first paint.`);
