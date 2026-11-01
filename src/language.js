@@ -19,7 +19,7 @@ const turkish = {
   playEyebrow: '<span class="chapter-index">01</span> MOBİL OYUN / UNITY · C#',
   playTitle: 'KÜÇÜK<br>HAMLE,<br><em>BÜYÜK OYUN.</em>',
   playDescription: 'Doğru parçayı bul. Biraz yer aç. Bir sonraki hamlene alan yarat. Bir kez daha denemenin keyfi üzerine kurulu, rengârenk bir mobil bulmaca oyunu.',
-  playLink: 'Google Play’de keşfet <span aria-hidden="true">↗</span>',
+  storeGoogle: 'BURADAN İNDİR', storeApple: 'BURADAN İNDİR',
   followPlay: 'OYUNU TAKİP ET', projectContact: 'PROJE İLETİŞİMİ',
   storyEyebrow: '<span class="chapter-index">02</span> VİDEO HİKÂYELER / TÜRKÇE',
   storyTitle: 'DAHA<br>YAKINDAN<br><em>BAK.</em>',
@@ -46,6 +46,7 @@ const turkishAria = {
   interactiveScene: 'Etkileşimli proje dünyaları. Sahneyi döndürmek için fareyi hareket ettirin veya sürükleyin.',
   journey: 'Portfolyoda yolculuk', selectedProjects: 'Seçili projeler',
   playSocials: 'Block Bluup sosyal medya hesapları', storySocials: 'Gece Dosyası sosyal medya hesapları',
+  storeLinks: 'Block Bluup indirme bağlantıları',
   emailContacts: 'E-posta iletişim adresleri'
 };
 

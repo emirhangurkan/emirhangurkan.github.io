@@ -85,6 +85,15 @@ h1 em { font-style:normal; color:var(--accent); transition:color .65s; }
 .project-link { display:inline-flex; gap:32px; align-items:center; text-decoration:none; padding-bottom:11px; border-bottom:1px solid #9eafaf6e; font-size:10px; font-weight:650; margin-top:24px; }
 .project-link span { font-size:16px; color:var(--accent); }
 .project-link:hover { color:var(--accent); }
+.store-links { display:flex; flex-wrap:wrap; gap:10px; max-width:380px; margin-top:25px; }
+.store-link { display:flex; align-items:center; gap:10px; flex:1 1 160px; min-height:57px; padding:9px 11px; border:1px solid #8fa8a04a; border-radius:12px; background:#ffffff0a; text-decoration:none; transition:border-color .2s,background .2s,transform .2s; }
+.store-link:hover { border-color:var(--accent); background:#ffffff12; transform:translateY(-2px); }
+.store-icon { flex:none; width:26px; height:26px; }
+.store-icon-app { color:var(--paper); }
+.store-copy { display:grid; gap:3px; white-space:nowrap; }
+.store-copy small { font-size:7px; font-weight:600; letter-spacing:.08em; color:#9eafab; }
+.store-copy strong { font-size:13px; line-height:1.1; font-weight:650; letter-spacing:-.02em; }
+.store-arrow { margin-left:auto; align-self:flex-start; color:var(--accent); font-size:12px; }
 .project-socials { margin-top:27px; max-width:380px; }
 .project-socials > span { color:#849592; font-size:7px; font-weight:600; letter-spacing:.15em; }
 .project-socials > div { display:flex; flex-wrap:wrap; gap:0 21px; margin-top:3px; }
@@ -177,6 +186,8 @@ html[lang="tr"] .contact-title h2 { font-size:clamp(65px,10.4vw,160px); }
   .project-name { font-size:8px; margin-top:22px; }
   .chapter-description { font-size:12px; line-height:1.8; max-width:270px; }
   .project-link { margin-top:18px; font-size:9px; }
+  .store-links { margin-top:18px; }
+  .store-link { flex-basis:140px; }
   .project-socials { margin-top:23px; }
   .project-socials > div { gap:0 15px; }
   .project-socials a { font-size:10px; gap:4px; }
